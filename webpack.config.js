@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+﻿const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ThemeWatcher = require('@salla.sa/twilight/watcher.js');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -21,6 +21,7 @@ module.exports = {
         testimonials   : asset('js/testimonials.js')
     },
     output : {
+        uniqueName: "needsboxes-theme",
         path: public(),
         clean: true,
         chunkFilename: "[name].[contenthash].js"
@@ -72,3 +73,6 @@ module.exports = {
     },
 }
 ;
+
+
+
