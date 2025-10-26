@@ -1,0 +1,15 @@
+﻿{# NeedsBoxes Offers with countdown and editable slider #}
+<section id="offers" class="py-10">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
+      <h2 class="text-2xl font-extrabold salla-section-title">عروض اليوم</h2>
+      <div id="nb-countdown" class="flex items-center gap-2 text-sm" aria-label="الوقت المتبقي للعروض">
+        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700" data-nb="d">00</span>يوم
+        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700" data-nb="h">00</span>ساعة
+        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700" data-nb="m">00</span>دقيقة
+        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700" data-nb="s">00</span>ثانية
+      </div>
+    </div>
+    <salla-slider pagination class="rounded-2xl overflow-hidden"></salla-slider>
+  </div>
+</section>

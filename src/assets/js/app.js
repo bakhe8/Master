@@ -302,3 +302,6 @@ isElementLoaded(selector){
 }
 
 salla.onReady(() => (new App).loadTheApp());
+
+import './partials/brand.js';
+

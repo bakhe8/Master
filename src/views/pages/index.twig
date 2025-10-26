@@ -1,4 +1,4 @@
-{#
+﻿{#
 | Variable         | Type       | Description                                                         |
 |------------------|------------|---------------------------------------------------------------------|
 | page             | object     |                                                                     |
@@ -6,9 +6,18 @@
 | page.slug        | string     | ex: "cat.show"                                                      |
 #}
 {% extends "layouts.master" %}
-{% block content %}\n    {% include "components.home.needsboxes-hero" %}\n    {% include "components.home.needsboxes-trust" %}\n    
-    {% component home %}
+{% block content %}
+    {% include "components.home.needsboxes-hero" %}
+    {% include "components.home.needsboxes-trust" %}
+    {% include "components.home.needsboxes-offers" %}
+    {% include "components.home.needsboxes-categories" %}
+    {% include "components.home.needsboxes-featured" %}
+    {% include "components.home.needsboxes-all-products" %}
+    {% include "components.home.needsboxes-testimonials" %}
+    {% include "components.home.needsboxes-faq" %}
+    {% include "components.home.needsboxes-contact" %}
 {% endblock %}
 {% block scripts %}
     <script defer src="{{ 'home.js' | asset }}"></script>
 {% endblock %}
+
