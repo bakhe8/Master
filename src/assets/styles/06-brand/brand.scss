@@ -1,0 +1,85 @@
+:root {
+  --primary-dark: #0D2C6C;
+  --primary-blue: #0D2C6C;
+  --accent-coral: #FF9E1B;
+  --accent-orange-dark: #F36C21;
+  --neutral-light: #f8f9fa;
+  --text-dark: #333333;
+  --accent-ultralight: #fffaf5;
+  --border-radius: 12px;
+}
+
+[data-theme="dark"] {
+  --primary-dark: #1e3a8a;
+  --primary-blue: #1e3a8a;
+  --accent-coral: #fdba74;
+  --accent-orange-dark: #fb923c;
+  --neutral-light: #1a1d28;
+  --text-dark: #e2e8f0;
+  --accent-ultralight: #2a2d38;
+}
+
+html { scroll-behavior: smooth; }
+body { color: var(--text-dark); background-color: var(--neutral-light); transition: background-color .3s ease, color .3s ease; }
+
+.salla-section-title { position: relative; display: inline-block; }
+.salla-section-title::after{ content:''; position:absolute; bottom:-10px; right:50%; transform:translateX(50%); width:80px; height:3px; background: linear-gradient(90deg, var(--primary-dark) 0%, var(--accent-coral) 100%); transition: all .3s; }
+[data-theme="dark"] .salla-section-title::after{ background: linear-gradient(90deg, var(--accent-coral) 0%, var(--primary-dark) 100%); }
+
+.salla-product-card { background:#fff; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:all .3s cubic-bezier(.4,0,.2,1); overflow:hidden; border:1px solid rgba(0,0,0,.05); position:relative; }
+.salla-product-card:hover{ transform:translateY(-8px); box-shadow:0 20px 40px rgba(13,44,108,.15); border-color:var(--accent-coral); }
+.salla-product-image { height:250px; overflow:hidden; position:relative; background:#f8f9fa; }
+.salla-product-image img { transition: transform .6s cubic-bezier(0.165, 0.84, 0.44, 1); mix-blend-mode:multiply; }
+.salla-product-card:hover .salla-product-image img { transform: scale(1.08); }
+[data-theme="dark"] .salla-product-card { background-color:#222530; border-color:rgba(255,255,255,.1); }
+.salla-product-badge { background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-orange-dark) 100%); color:#111827; }
+
+.salla-add-to-cart { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%); color:#fff; border:none; border-radius:12px; padding:12px 20px; font-weight:600; transition:all .3s ease; position:relative; overflow:hidden; }
+.salla-add-to-cart::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent); transition:left .5s; }
+.salla-add-to-cart:hover::before{ left:100%; }
+.salla-add-to-cart:hover{ background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-orange-dark) 100%); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,158,27,.3); }
+
+.out-of-stock{ opacity:.6; }
+.out-of-stock-badge { background:#4b5563; color:#fff; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); padding:.25rem .75rem; border-radius:99px; font-size:.875rem; font-weight:700; z-index:5; }
+
+.product-filter-btn { background-color:#fff; border:1px solid #e0e8ff; color:var(--text-dark); transition:all .3s ease; min-height:48px; min-width:48px; }
+.product-filter-btn.active-filter{ background-color:var(--primary-dark); color:#fff; border-color:var(--primary-dark); transform:scale(1.05); }
+[data-theme="dark"] .product-filter-btn{ background-color:#222530; border-color:rgba(255,255,255,.1); }
+[data-theme="dark"] .product-filter-btn.active-filter{ background-color:var(--accent-coral); color:#111827; border-color:var(--accent-coral); }
+
+.skeleton { background: linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%); background-size:200% 100%; animation: brand-loading 1.5s infinite; border-radius:8px; position:relative; overflow:hidden; }
+[data-theme="dark"] .skeleton{ background: linear-gradient(90deg,#2a2a2a 25%,#3a3a3a 50%,#2a2a2a 75%); background-size:200% 100%; }
+@keyframes brand-loading { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* Utilities */
+.shadow-coral { box-shadow: 0 10px 28px rgba(255,158,27,.30); }
+.bg-hero{ background: linear-gradient(135deg,#0046FF 0%, #11224E 75%); }
+.bg-stripe{ background: repeating-linear-gradient(135deg, rgba(255,255,255,.10) 0 6px, rgba(255,255,255,.04) 6px 16px); }
+
+/* Overlays & Panels */
+.sidebar-overlay,.mini-cart-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:98; opacity:0; visibility:hidden; transition:all .3s ease-in-out; }
+.sidebar-overlay.active,.mini-cart-overlay.active{ opacity:1; visibility:visible; }
+.sidebar{ position:fixed; top:0; right:-300px; width:300px; max-width:85vw; height:100%; background:#fff; z-index:99; transition:right .3s ease-in-out,left .3s ease-in-out; display:flex; flex-direction:column; box-shadow:-2px 0 10px rgba(0,0,0,.1); }
+[dir="ltr"] .sidebar{ right:auto; left:-300px; }
+.sidebar.active{ right:0; }
+[dir="ltr"] .sidebar.active{ left:0; }
+[data-theme="dark"] .sidebar{ background:#1a1d28; }
+
+.mini-cart{ position:fixed; top:0; right:-400px; width:400px; max-width:90vw; height:100%; background:#fff; z-index:99; transition:right .3s ease-in-out,left .3s ease-in-out; display:flex; flex-direction:column; box-shadow:2px 0 15px rgba(0,0,0,.1); }
+[dir="ltr"] .mini-cart{ right:auto; left:-400px; }
+.mini-cart.active{ right:0; }
+[dir="ltr"] .mini-cart.active{ left:0; }
+[data-theme="dark"] .mini-cart{ background:#1a1d28; }
+
+.modal-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:100; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all .3s ease-in-out; padding:1rem; }
+.modal-overlay.active{ opacity:1; visibility:visible; }
+.modal-card{ background:#fff; border-radius: var(--border-radius); width:100%; max-width:900px; max-height:90vh; overflow:auto; transform:scale(.96); transition: all .3s cubic-bezier(.175,.885,.32,1.275); }
+.modal-overlay.active .modal-card{ transform:scale(1); }
+[data-theme="dark"] .modal-card{ background:#1a1d28; }
+.modal-tab-btn{ border-bottom:3px solid transparent; padding-bottom:.5rem; opacity:.6; transition: all .2s; }
+.modal-tab-btn.active{ border-color:var(--accent-coral); opacity:1; font-weight:700; }
+.modal-tab-panel{ display:none; }
+.modal-tab-panel.active{ display:block; animation: fadeIn .3s ease; }
+
+/* WhatsApp Floating */
+.salla-whatsapp-button{ min-width:56px; min-height:56px; }

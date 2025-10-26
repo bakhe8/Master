@@ -6,7 +6,7 @@
 | page.slug        | string     | ex: "cat.show"                                                      |
 #}
 {% extends "layouts.master" %}
-{% block content %}
+{% block content %}\n    {% include "components.home.needsboxes-hero" %}\n    {% include "components.home.needsboxes-trust" %}\n    
     {% component home %}
 {% endblock %}
 {% block scripts %}
