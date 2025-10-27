@@ -73,12 +73,893 @@
             "format": "switch"
         },
         {
+            "type": "static",
+            "format": "title",
+            "id": "beto_branding_section_title",
+            "value": "الهوية والبيانات الوصفية",
+            "variant": "h6"
+        },
+        {
+            "id": "beto_meta_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان الصفحات الافتراضي",
+            "description": "يظهر عندما لا يتم تحديد عنوان صفحة مخصص.",
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "multilanguage": true
+        },
+        {
+            "id": "beto_meta_description",
+            "type": "string",
+            "format": "textarea",
+            "label": "الوصف التعريفي الافتراضي",
+            "description": "وصف مختصر يظهر في نتائج محركات البحث وبطاقات المشاركة الاجتماعية.",
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "multilanguage": true
+        },
+        {
+            "id": "beto_meta_twitter_handle",
+            "type": "string",
+            "format": "text",
+            "label": "حساب المتجر في تويتر/X",
+            "description": "أدخل @username لتضمينه في بطاقات تويتر.",
+            "labelHTML": null,
+            "icon": "sicon-twitter",
+            "multilanguage": false
+        },
+        {
+            "id": "beto_social_share_image",
+            "type": "string",
+            "format": "image",
+            "label": "صورة المشاركة الافتراضية",
+            "description": "تُستخدم عند مشاركة روابط المتجر على الشبكات الاجتماعية (يفضل 1200×630).",
+            "labelHTML": null,
+            "icon": "sicon-image",
+            "multilanguage": false
+        },
+        {
+            "id": "beto_brand_favicon",
+            "type": "string",
+            "format": "image",
+            "label": "أيقونة Favicon مخصصة",
+            "description": "PNG أو SVG بمقاس 32×32 على الأقل.",
+            "labelHTML": null,
+            "icon": "sicon-image",
+            "multilanguage": false
+        },
+        {
+            "id": "beto_brand_touch_icon",
+            "type": "string",
+            "format": "image",
+            "label": "أيقونة الأجهزة الذكية (Apple Touch Icon)",
+            "description": "PNG بمقاس 180×180 لعرضه على الأجهزة المحمولة.",
+            "labelHTML": null,
+            "icon": "sicon-image",
+            "multilanguage": false
+        },
+        {
+            "id": "beto_brand_theme_color",
+            "type": "string",
+            "format": "text",
+            "label": "لون المتصفح (Theme Color)",
+            "description": "أدخل كود اللون السداسي HEX ليتوافق مع هوية المتجر.",
+            "labelHTML": null,
+            "icon": "sicon-drop",
+            "multilanguage": false,
+            "value": "#0D2C6C"
+        },
+        {
             "type": "string",
             "id": "needsboxes_offers_deadline",
             "format": "datetime",
             "icon": "sicon-calendar",
             "label": "موعد انتهاء عرض صناديق Needs Boxes",
             "description": "اختر التاريخ والوقت لعدّاد عروض الصناديق. اتركه فارغاً لاستخدام مؤقت افتراضي."
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_home_settings_title",
+            "value": "إعدادات الصفحة الرئيسية - Needs Boxes",
+            "variant": "h6"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_hero_section_title",
+            "value": "بطل الصفحة",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_hero_badge",
+            "type": "string",
+            "format": "text",
+            "label": "وسم صغير فوق العنوان",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Needs Boxes",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_headline",
+            "type": "string",
+            "format": "text",
+            "label": "العنوان الرئيسي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Needs Boxes",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_subheadline",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان فرعي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Unbox exactly what you need",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_copy",
+            "type": "string",
+            "format": "textarea",
+            "label": "نص وصفي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "We handpick premium tech accessories into ready-to-go boxes so you stay connected, productive, and inspired.",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_tagline",
+            "type": "string",
+            "format": "text",
+            "label": "نص قصير تحت الشعار",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Needs Boxes – ready-to-use tech gifts in every delivery",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_primary_label",
+            "type": "string",
+            "format": "text",
+            "label": "نص زر الإجراء الرئيسي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Shop curated boxes",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_primary_link",
+            "type": "string",
+            "format": "text",
+            "label": "رابط زر الإجراء الرئيسي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-link",
+            "value": "#featured-products",
+            "multilanguage": false
+        },
+        {
+            "id": "needsboxes_hero_secondary_label",
+            "type": "string",
+            "format": "text",
+            "label": "نص زر الإجراء الثانوي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Browse categories",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_hero_secondary_link",
+            "type": "string",
+            "format": "text",
+            "label": "رابط زر الإجراء الثانوي",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-link",
+            "value": "#categories",
+            "multilanguage": false
+        },
+        {
+            "id": "needsboxes_hero_background",
+            "type": "string",
+            "format": "image",
+            "label": "صورة خلفية للبطل",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-image",
+            "value": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop",
+            "multilanguage": false
+        },
+        {
+            "id": "needsboxes_hero_stats",
+            "type": "collection",
+            "format": "collection",
+            "label": "عناصر مزايا مختصرة",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "value": [
+                {
+                    "items.title": "Inside every box",
+                    "items.value": "Smart charger + audio essentials"
+                },
+                {
+                    "items.title": "Signature surprise",
+                    "items.value": "Complimentary accessory"
+                },
+                {
+                    "items.title": "Quality assurance",
+                    "items.value": "100% authentic items"
+                },
+                {
+                    "items.title": "Support crew",
+                    "items.value": "Stay-with-you specialists"
+                }
+            ],
+            "fields": [
+                {
+                    "id": "items.title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "عنوان",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.value",
+                    "type": "string",
+                    "format": "text",
+                    "label": "وصف",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                }
+            ],
+            "required": false,
+            "minLength": 2,
+            "maxLength": 4
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_trust_section_title",
+            "value": "مؤشرات الثقة",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_trust_items",
+            "type": "collection",
+            "format": "collection",
+            "label": "قائمة عناصر الثقة",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "value": [
+                {
+                    "items.icon": "fa-solid fa-layer-group",
+                    "items.title": "Smart curation",
+                    "items.text": "We design each box around real daily-use scenarios."
+                },
+                {
+                    "items.icon": "fa-solid fa-shield-heart",
+                    "items.title": "Needs Boxes guarantee",
+                    "items.text": "Seven-day exchange or return if the box is not the right fit."
+                },
+                {
+                    "items.icon": "fa-solid fa-certificate",
+                    "items.title": "Trusted brands",
+                    "items.text": "We partner with licensed suppliers to ensure original products."
+                },
+                {
+                    "items.icon": "fa-solid fa-headset",
+                    "items.title": "Dedicated support",
+                    "items.text": "Our advisors help before, during, and after every delivery."
+                }
+            ],
+            "fields": [
+                {
+                    "id": "items.icon",
+                    "type": "string",
+                    "format": "text",
+                    "label": "أيقونة Font Awesome",
+                    "description": "مثال: fa-solid fa-layer-group",
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": false
+                },
+                {
+                    "id": "items.title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.text",
+                    "type": "string",
+                    "format": "text",
+                    "label": "النص",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                }
+            ],
+            "required": false,
+            "minLength": 3,
+            "maxLength": 6
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_offers_section_title",
+            "value": "عروض اليوم",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_offers_badge",
+            "type": "string",
+            "format": "text",
+            "label": "شعار العرض",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Weekly spotlight",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_offers_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان العروض",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Exclusive offer box",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_offers_subtitle",
+            "type": "string",
+            "format": "textarea",
+            "label": "وصف العروض",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Grab limited-time Needs Boxes bundles with priority shipping across Saudi Arabia.",
+            "multilanguage": true
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_categories_section_title",
+            "value": "بطاقات التصنيفات",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_categories_items",
+            "type": "collection",
+            "format": "collection",
+            "label": "بطاقات التصنيفات",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "value": [
+                {
+                    "items.title": "Microphones",
+                    "items.subtitle": "Professional & portable",
+                    "items.image": "https://images.unsplash.com/photo-1518443895914-6bd2d118b3a1?q=80&w=1200&auto=format&fit=crop",
+                    "items.url": "#all-products"
+                },
+                {
+                    "items.title": "Lighting & Chargers",
+                    "items.subtitle": "LED and RGB",
+                    "items.image": "https://images.unsplash.com/photo-1512446816042-444d641267d4?q=80&w=1200&auto=format&fit=crop",
+                    "items.url": "#all-products"
+                },
+                {
+                    "items.title": "Accessories",
+                    "items.subtitle": "Organizers and hubs",
+                    "items.image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop",
+                    "items.url": "#all-products"
+                }
+            ],
+            "fields": [
+                {
+                    "id": "items.title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "label": "وصف مختصر",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة الخلفية",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-image"
+                },
+                {
+                    "id": "items.url",
+                    "type": "string",
+                    "format": "text",
+                    "label": "الرابط",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-link",
+                    "multilanguage": false
+                }
+            ],
+            "required": false,
+            "minLength": 3,
+            "maxLength": 6
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_featured_section_title",
+            "value": "المنتجات المميزة",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_featured_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Signature boxes ready to ship",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_featured_subtitle",
+            "type": "string",
+            "format": "textarea",
+            "label": "وصف القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Pick the Needs Boxes bundle that matches your budget—core accessories plus thoughtful extras included.",
+            "multilanguage": true
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_all_products_section_title",
+            "value": "كل الصناديق",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_all_products_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "All Needs Boxes",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_all_products_subtitle",
+            "type": "string",
+            "format": "textarea",
+            "label": "وصف القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Explore the newest curated boxes and filter by how and where you use your tech.",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_all_products_filters",
+            "type": "collection",
+            "format": "collection",
+            "label": "فلاتر قسم المنتجات",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "value": [
+                {
+                    "items.label": "All boxes",
+                    "items.value": "all"
+                },
+                {
+                    "items.label": "Audio",
+                    "items.value": "audio"
+                },
+                {
+                    "items.label": "Lighting",
+                    "items.value": "lighting"
+                },
+                {
+                    "items.label": "Charging",
+                    "items.value": "charging"
+                },
+                {
+                    "items.label": "Accessories",
+                    "items.value": "accessory"
+                }
+            ],
+            "fields": [
+                {
+                    "id": "items.label",
+                    "type": "string",
+                    "format": "text",
+                    "label": "اسم الفلتر",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.value",
+                    "type": "string",
+                    "format": "text",
+                    "label": "قيمة الفلتر (data-nb-filter)",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": false
+                }
+            ],
+            "required": false,
+            "minLength": 1,
+            "maxLength": 8
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_testimonials_section_title",
+            "value": "آراء العملاء",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_testimonials_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Why customers love Needs Boxes",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_testimonials_subtitle",
+            "type": "string",
+            "format": "textarea",
+            "label": "وصف القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Real stories from people unboxing tech kits tailored to their daily routines.",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_testimonials_items",
+            "type": "collection",
+            "format": "collection",
+            "label": "قائمة التقييمات",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "value": [
+                {
+                    "items.name": "Abdullah – Riyadh",
+                    "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png",
+                    "items.rating": 5,
+                    "items.text": "The workspace box arrived fully loaded—multi-port charger, spare headphones, and desk organizers. Saved me the hunt."
+                },
+                {
+                    "items.name": "Sarah – Jeddah",
+                    "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_female.png",
+                    "items.rating": 5,
+                    "items.text": "Sent it as a gift and the packaging was stunning. Each item came with a guidecard, which made it extra special."
+                },
+                {
+                    "items.name": "Mohammed – Dammam",
+                    "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png",
+                    "items.rating": 4,
+                    "items.text": "Loved the travel tech mix. Support helped me tweak the add-ons for my trip within minutes."
+                }
+            ],
+            "fields": [
+                {
+                    "id": "items.name",
+                    "type": "string",
+                    "format": "text",
+                    "label": "اسم العميل",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.avatar",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة العميل",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-image"
+                },
+                {
+                    "id": "items.rating",
+                    "type": "number",
+                    "format": "integer",
+                    "label": "عدد النجوم",
+                    "description": null,
+                    "labelHTML": "من 1 إلى 5",
+                    "placeholder": "القيمة",
+                    "icon": "sicon-pencil-ruler",
+                    "minimum": 1,
+                    "maximum": 5
+                },
+                {
+                    "id": "items.text",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "نص التقييم",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                }
+            ],
+            "required": false,
+            "minLength": 1,
+            "maxLength": 8
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_faq_section_title",
+            "value": "الأسئلة الشائعة",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_faq_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Most asked questions about Needs Boxes",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_faq_items",
+            "type": "collection",
+            "format": "collection",
+            "label": "قائمة الأسئلة",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "value": [
+                {
+                    "items.question": "Can I customize the box contents?",
+                    "items.answer": "Absolutely. Choose a box then reach out to add or remove accessories before it ships—we’ll tailor it to your routine."
+                },
+                {
+                    "items.question": "Are all items authentic?",
+                    "items.answer": "Yes. We source directly from authorized distributors and include warranty details inside every box."
+                },
+                {
+                    "items.question": "How fast do you deliver in Saudi Arabia?",
+                    "items.answer": "Priority delivery lands within 24–72 hours depending on your city, with live tracking in your dashboard."
+                }
+            ],
+            "fields": [
+                {
+                    "id": "items.question",
+                    "type": "string",
+                    "format": "text",
+                    "label": "السؤال",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items.answer",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "الإجابة",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-text-alt",
+                    "multilanguage": true
+                }
+            ],
+            "required": false,
+            "minLength": 1,
+            "maxLength": 10
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "needsboxes_contact_section_title",
+            "value": "التواصل والدعم",
+            "variant": "h6"
+        },
+        {
+            "id": "needsboxes_contact_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "We’ll match you with the right box",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_subtitle",
+            "type": "string",
+            "format": "textarea",
+            "label": "وصف القسم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Reach out on any channel and the Needs Boxes crew will help you curate, customize, or track your order.",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_form_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان نموذج التواصل",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Quick contact form",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_form_desc",
+            "type": "string",
+            "format": "textarea",
+            "label": "وصف نموذج التواصل",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Send us a note and a Needs Boxes specialist will respond during business hours.",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_channels_title",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان قنوات الدعم",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Direct support channels",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_phone_label",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان رقم الهاتف",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Support phone",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_phone_number",
+            "type": "string",
+            "format": "text",
+            "label": "رقم الهاتف الظاهر",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "966-57-372-5600",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_whatsapp_label",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان الواتساب",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Needs Boxes on WhatsApp",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_whatsapp_desc",
+            "type": "string",
+            "format": "text",
+            "label": "وصف الواتساب",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Available daily from 10 a.m. to 10 p.m.",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_whatsapp_number",
+            "type": "string",
+            "format": "text",
+            "label": "رقم الواتساب",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "966-57-372-5600",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_address_label",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان الموقع",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Needs Boxes HQ",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_address_text",
+            "type": "string",
+            "format": "text",
+            "label": "نص الموقع",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-format-text-alt",
+            "value": "Riyadh, Saudi Arabia",
+            "multilanguage": true
+        },
+        {
+            "id": "needsboxes_contact_whatsapp_url",
+            "type": "string",
+            "format": "text",
+            "label": "رابط زر الواتساب",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-link",
+            "value": "https://wa.me/966573725600",
+            "multilanguage": false
         },
         {
             "type": "static",
@@ -240,10 +1121,10 @@
                     "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
                 },
                 {
-                  "type": "static",
-                  "format": "description",
-                  "id": "enhance-slider-note",
-                  "value": "<div style='background-color: #ddedff;color: #0a5a90;padding: 16px 20px;font-size: 14px;border-radius: 4px; margin: 0 0 30px;'>هذا العنصر غير مناسب لعرض البنرات، يمكنك استخدام عنصر <strong>صور متحركة</strong> بدلاً منه لتظهر صورة البنر بشكل كامل</div>"
+                    "type": "static",
+                    "format": "description",
+                    "id": "enhance-slider-note",
+                    "value": "<div style='background-color: #ddedff;color: #0a5a90;padding: 16px 20px;font-size: 14px;border-radius: 4px; margin: 0 0 30px;'>هذا العنصر غير مناسب لعرض البنرات، يمكنك استخدام عنصر <strong>صور متحركة</strong> بدلاً منه لتظهر صورة البنر بشكل كامل</div>"
                 },
                 {
                     "id": "slides",

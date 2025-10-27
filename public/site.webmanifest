@@ -1,0 +1,24 @@
+{
+  "name": "Beto Theme Storefront",
+  "short_name": "Beto",
+  "description": "واجهة متجر Beto Theme بلمسة احترافية متوافقة مع منصة سلة.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "theme_color": "#0D2C6C",
+  "background_color": "#11224E",
+  "icons": [
+    {
+      "src": "images/beto-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/beto-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
