@@ -73,6 +73,14 @@
             "format": "switch"
         },
         {
+            "type": "string",
+            "id": "needsboxes_offers_deadline",
+            "format": "datetime",
+            "icon": "sicon-calendar",
+            "label": "موعد انتهاء عرض صناديق Needs Boxes",
+            "description": "اختر التاريخ والوقت لعدّاد عروض الصناديق. اتركه فارغاً لاستخدام مؤقت افتراضي."
+        },
+        {
             "type": "static",
             "id": "static-line1",
             "format": "line"

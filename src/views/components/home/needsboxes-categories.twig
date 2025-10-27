@@ -1,17 +1,47 @@
-﻿{# NeedsBoxes Categories cards (static placeholders) #}
+﻿{# NeedsBoxes Categories cards (brand aligned) #}
 <section id="categories" class="py-12">
+  {% set categories = [
+    {
+      "icon": "fa-solid fa-briefcase",
+      "title": trans('common.needsboxes.category_work_title')|default('صندوق العمل اليومي'),
+      "description": trans('common.needsboxes.category_work_desc')|default('ملحقات مكتبية وشحن تحافظ على إنتاجيتك.'),
+      "url": "#all-products",
+      "gradient": "from-[var(--primary-dark)]/90 via-[var(--primary-blue)]/85 to-[var(--primary-dark)]/70"
+    },
+    {
+      "icon": "fa-solid fa-headphones-simple",
+      "title": trans('common.needsboxes.category_entertainment_title')|default('صندوق الترفيه الصوتي'),
+      "description": trans('common.needsboxes.category_entertainment_desc')|default('صوتيات وألعاب وإضاءة أجواء لوقت الراحة.'),
+      "url": "#all-products",
+      "gradient": "from-[var(--accent-coral)]/90 via-[var(--accent-orange-dark)]/80 to-[var(--primary-dark)]/60"
+    },
+    {
+      "icon": "fa-solid fa-gift",
+      "title": trans('common.needsboxes.category_gifting_title')|default('صندوق الهدايا التقنية'),
+      "description": trans('common.needsboxes.category_gifting_desc')|default('مفاجآت أنيقة جاهزة للإهداء مع تغليف مميز.'),
+      "url": "#all-products",
+      "gradient": "from-[var(--primary-dark)]/85 via-[var(--accent-coral)]/75 to-[var(--accent-orange-dark)]/70"
+    }
+  ] %}
   <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="#all-products" class="group relative rounded-2xl overflow-hidden bg-white border dark:border-white/10 dark:bg-gray-800 shadow-soft hover:shadow-nb min-h-[160px] flex flex-col justify-end p-6 transition-all duration-300 hover:-translate-y-1">
-      <img src="https://images.unsplash.com/photo-1518443895914-6bd2d118b3a1?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity" alt="مايكروفونات" loading="lazy"/>
-      <div class="relative"><h3 class="text-2xl font-extrabold text-white">مايكروفونات</h3><p class="text-white/85">احترافية ومحمولة</p></div>
-    </a>
-    <a href="#all-products" class="group relative rounded-2xl overflow-hidden bg-white border dark:border-white/10 dark:bg-gray-800 shadow-soft hover:shadow-nb min-h-[160px] flex flex-col justify-end p-6 transition-all duration-300 hover:-translate-y-1">
-      <img src="https://images.unsplash.com/photo-1512446816042-444d641267d4?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity" alt="إضاءة وشواحن" loading="lazy"/>
-      <div class="relative"><h3 class="text-2xl font-extrabold text-white">إضاءة وشواحن</h3><p class="text-white/85">LED و RGB</p></div>
-    </a>
-    <a href="#all-products" class="group relative rounded-2xl overflow-hidden bg-white border dark:border-white/10 dark:bg-gray-800 shadow-soft hover:shadow-nb min-h-[160px] flex flex-col justify-end p-6 transition-all duration-300 hover:-translate-y-1">
-      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity" alt="اكسسوارات" loading="lazy"/>
-      <div class="relative"><h3 class="text-2xl font-extrabold text-white">اكسسوارات</h3><p class="text-white/85">تنظيم ومنافذ</p></div>
-    </a>
+    {% for category in categories %}
+      <a href="{{ category.url }}" class="group relative rounded-3xl overflow-hidden shadow-soft hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent-coral)]">
+        <div class="absolute inset-0 bg-gradient-to-br {{ category.gradient }}"></div>
+        <div class="absolute inset-0 opacity-20 bg-stripe"></div>
+        <div class="relative flex flex-col gap-3 min-h-[180px] justify-end p-6 text-white">
+          <div class="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center text-2xl">
+            <i class="{{ category.icon }}"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-extrabold">{{ category.title }}</h3>
+            <p class="text-white/85 text-sm mt-1">{{ category.description }}</p>
+          </div>
+          <span class="inline-flex items-center gap-1 text-xs uppercase tracking-[0.25em] text-white/70">
+            {{ trans('common.needsboxes.category_cta')|default('استكشف الصندوق') }}
+            <i class="fa-solid fa-arrow-left-long text-white/80 transition-transform duration-200 group-hover:-translate-x-1"></i>
+          </span>
+        </div>
+      </a>
+    {% endfor %}
   </div>
 </section>
