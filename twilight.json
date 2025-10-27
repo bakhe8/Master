@@ -1,7 +1,7 @@
 {
     "name": {
-        "ar": "رائد",
-        "en": "Theme Raed"
+        "ar": "بيتو",
+        "en": "Beto Theme"
     },
     "repository": "https://github.com/bakhe8/Master",
     "author_email": "support@salla.sa",
@@ -229,7 +229,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "static-desc",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/images-slider-enhancement.png?v=1.1'></div>"
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
                 },
                 {
                   "type": "static",
@@ -315,7 +315,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/main-links-with-bg.jpg?v=1.1'></div>",
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>",
                     "conditions": [
                         {
                             "id": "merge_with_top_component",
@@ -328,7 +328,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "without-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1'></div>",
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>",
                     "conditions": [
                         {
                             "id": "merge_with_top_component",
@@ -567,7 +567,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/slider-products-with-bg.png?v=1.1'></div>"
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
                 },
                 {
                     "type": "string",
@@ -708,7 +708,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/square-images.png?v=1.1'></div>"
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
                 },
                 {
                     "id": "banners",
@@ -875,7 +875,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/brands.png?v=1.1'></div>"
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
                 },
                 {
                     "type": "string",
@@ -922,7 +922,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "static-desc",
-                    "value": "<div style='margin: -24px -20px 20px'><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/custom-testimonials.png?v=1.1'></div>"
+                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
                 },
                 {
                     "id": "items",
