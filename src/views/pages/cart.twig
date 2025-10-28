@@ -49,15 +49,16 @@
 
 {% extends "layouts.master" %}
 {% block content %}
-    <div class="container">
+    <section class="beto-cart-section py-12">
+        <div class="container">
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
         <nav class="breadcrumbs w-full py-5">
             <salla-breadcrumb></salla-breadcrumb>
         </nav>
         <h1 class="sr-only">{{ trans('blocks.header.cart') }}</h1>
         <salla-conditional-offer></salla-conditional-offer>
-        <div class="pt-5 flex flex-col items-start lg:flex-row pb-6 lg:pb-20">
-            <div class="main-content w-full lg:w-[calc(100%-384px)]">
+        <div class="pt-5 flex flex-col items-start lg:flex-row gap-8 lg:gap-12 pb-6 lg:pb-20 beto-cart-shell">
+            <div class="main-content beto-cart-items w-full lg:w-[calc(100%-384px)]">
                 {% hook 'cart:items.start' %}
 
                 {% for item in cart.items %}
@@ -175,7 +176,7 @@
 
             <!-- sidebar -->
             {% if cart.items|length %}
-                <div class="sticky top-24 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
+                <div class="sticky top-24 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8 beto-cart-summary">
                     <div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative {{ cart.free_shipping_bar ? '' : 'hidden' }}" id="free-shipping">
                         <div class="flex rtl:space-x-reverse space-x-3 items-center">
                             <i class="bg-primary text-white rounded-icon sicon-shipping-fast {{ theme.is_rtl ? 'flip-x':'' }}"></i>
@@ -289,7 +290,8 @@
                 </div>
             {% endif %}
         </div>
-    </div>
+        </div>
+    </section>
 {% endblock %}
 
 {% block scripts %}
