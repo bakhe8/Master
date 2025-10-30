@@ -1,0 +1,31 @@
+{#
+    Beto Theme - Category Banner Component
+    --------------------------------------
+    Displays the category image, name, and description at the top of the category page.
+    Expects a `category` object to be passed to it.
+#}
+
+{% if category.image %}
+    <div class="relative bg-gray-200 dark:bg-darker mb-8 rounded-lg overflow-hidden">
+        {# Background Image #}
+        <img src="{{ category.image }}" alt="{{ category.name }}" class="w-full h-48 md:h-64 object-cover">
+
+        {# Overlay #}
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+            <div class="text-center text-white">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">{{ category.name }}</h1>
+                {% if category.description %}
+                    <p class="max-w-2xl mx-auto text-sm md:text-base">{{ category.description }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% else %}
+    {# Fallback for categories without an image #}
+    <div class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">{{ category.name }}</h1>
+        {% if category.description %}
+            <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{{ category.description }}</p>
+        {% endif %}
+    </div>
+{% endif %}

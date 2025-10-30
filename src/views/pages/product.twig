@@ -1,0 +1,78 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-12">
+        {# Breadcrumbs #}
+        <salla-breadcrumb></salla-breadcrumb>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-8">
+            {# 1. Product Gallery #}
+            <div class="product-gallery">
+                <salla-product-gallery
+                    id="{{ product.id }}"
+                    images="{{ product.images|json_encode }}"
+                    main-image="{{ product.main_image }}"
+                ></salla-product-gallery>
+            </div>
+
+            {# 2. Product Details & Actions #}
+            <div class="product-details">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">{{ product.name }}</h1>
+
+                <div class="flex items-center gap-4 mb-4 text-sm">
+                    {% if product.sku %}
+                        <span class="text-gray-500">{{ trans('pages.product.sku') }}: {{ product.sku }}</span>
+                    {% endif %}
+                    <span class="text-gray-500">|</span>
+                    <salla-product-availability id="{{ product.id }}" status="{{ product.status }}"></salla-product-availability>
+                </div>
+
+                <div class="mb-6">
+                    <salla-price product-id="{{ product.id }}"></salla-price>
+                </div>
+
+                <salla-product-options product-id="{{ product.id }}"></salla-product-options>
+
+                <div class="flex items-center gap-4 mt-6">
+                    <salla-quantity-input product-id="{{ product.id }}"></salla-quantity-input>
+                    <div class="flex-1">
+                        <salla-add-to-cart
+                            product-id="{{ product.id }}"
+                            product-status="{{ product.status }}"
+                            product-type="{{ product.type }}">
+                        </salla-add-to-cart>
+                    </div>
+                    <salla-add-to-wishlist product-id="{{ product.id }}"></salla-add-to-wishlist>
+                </div>
+            </div>
+        </div>
+
+        {# 3. Product Information (Description & Reviews) #}
+        <div class="mt-12 lg:mt-20">
+            <salla-tabs>
+                {% if product.description %}
+                    <salla-tab name="{{ trans('pages.product.description') }}">
+                        <div class="prose dark:prose-invert max-w-none">
+                            {{ product.description|raw }}
+                        </div>
+                    </salla-tab>
+                {% endif %}
+
+                <salla-tab name="{{ trans('pages.product.reviews') }}">
+                    <salla-reviews product-id="{{ product.id }}"></salla-reviews>
+                </salla-tab>
+            </salla-tabs>
+        </div>
+
+        {# 4. Related Products #}
+        {% if product.related_products|length %}
+            <div class="mt-12 lg:mt-20">
+                <h2 class="text-2xl font-bold text-center mb-8 dark:text-white">{{ trans('pages.product.related_products') }}</h2>
+                <salla-products-slider
+                    source="related"
+                    source-value="{{ product.id }}">
+                </salla-products-slider>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

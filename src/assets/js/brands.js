@@ -1,20 +1,45 @@
-import BasePage from './base-page';
-class Brands extends BasePage {
-    onReady() {
-        // set initial height;
-        const nav = document.querySelector('#brands-nav'),
-              navWrap = document.querySelector('.brands-nav-wrap');
-        navWrap.style.height = nav.clientHeight + 'px';
+/**
+ * BrandsSlider Class
+ *
+ * Initializes a Swiper.js carousel for the brands component.
+ * It's responsive and includes autoplay functionality.
+ */
+class BrandsSlider {
+    constructor() {
+        this.slider = document.querySelector('.brands-slider');
+        this.init();
+    }
 
-        app.onClick('.brands-nav__item', ({target:btn}) => {
-            app.all('.brands-nav__item', el => app.toggleElementClassIf(el, 'is-selected', 'unselected', () => el == btn));
-        });
+    init() {
+        if (!this.slider) {
+            return;
+        }
 
-        window.addEventListener('scroll', () => {
-            let scrolAtTop = window.pageYOffset <= 200;
-            app.toggleClassIf('#brands-nav', 'is-not-sticky', 'is-sticky', () => scrolAtTop);
+        // salla.helpers.swiper is a built-in utility that lazy-loads Swiper.js
+        salla.helpers.swiper(this.slider, {
+            loop: true,
+            slidesPerView: 2,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 50,
+                },
+            },
         });
     }
 }
 
-Brands.initiateWhenReady(['brands.index']);
+document.addEventListener('DOMContentLoaded', () => new BrandsSlider());

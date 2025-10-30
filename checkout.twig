@@ -1,0 +1,17 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block header %}
+    <header class="bg-white border-b">
+        <div class="container py-7.5">
+            <a href="{{ store.url }}" class="logo">
+                <img src="{{ store.logo }}" alt="{{ store.name }}" class="max-w-[150px] max-h-[70px] object-contain">
+            </a>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <main class="bg-gray-50">
+        {% block page_content %}{% endblock %}
+    </main>
+{% endblock %}

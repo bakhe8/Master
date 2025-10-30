@@ -1,0 +1,75 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { h, Host } from "@stencil/core";
+export class SallaLoyaltyPrizeItem {
+    onPrizeItemClick() {
+        this.prizeItemSelected.emit(this.item);
+    }
+    render() {
+        return (h(Host, { key: '5ca09a4202a344b0483bdfec61051430c6804143' }, h("div", { key: '685bab3cdebcc0ebb8899bf41af4864dc613835b', onClick: this.onPrizeItemClick.bind(this) }, h("img", { key: '412d27faaf4fdb3df213806613ce0ce362f86f63', class: "s-loyalty-prize-item-image", src: this.item.image, alt: this.item.name }), h("div", { key: '9de2b85059c3db4cf750303e549938a577995d92', class: "s-loyalty-prize-item-title" }, this.item.name), h("div", { key: '9ecf6845d0edf53937476a8bebfc36372ab1b4d9', class: "s-loyalty-prize-item-subtitle" }, this.item.description), h("div", { key: '0c5f1cd8d22bc90178063c06eaf32bbac9f167ff', class: "s-loyalty-prize-item-points" }, this.item.cost_points, " Points"))));
+    }
+    static get is() { return "salla-loyalty-prize-item"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-loyalty-prize-item.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-loyalty-prize-item.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "item": {
+                "type": "unknown",
+                "attribute": "item",
+                "mutable": false,
+                "complexType": {
+                    "original": "Item",
+                    "resolved": "Item",
+                    "references": {
+                        "Item": {
+                            "location": "import",
+                            "path": "./loyalty-schema",
+                            "id": "src/components/salla-loyalty/loyalty-schema.ts::Item"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Prize item to be displayed in this component."
+                },
+                "getter": false,
+                "setter": false
+            }
+        };
+    }
+    static get events() {
+        return [{
+                "method": "prizeItemSelected",
+                "name": "prizeItemSelected",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Event emmited when the user select this item."
+                },
+                "complexType": {
+                    "original": "Item",
+                    "resolved": "Item",
+                    "references": {
+                        "Item": {
+                            "location": "import",
+                            "path": "./loyalty-schema",
+                            "id": "src/components/salla-loyalty/loyalty-schema.ts::Item"
+                        }
+                    }
+                }
+            }];
+    }
+}

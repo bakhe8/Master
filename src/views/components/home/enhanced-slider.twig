@@ -1,34 +1,35 @@
 {#
-| Variable                       | Type     | Description                                                                  |
-|--------------------------------|----------|------------------------------------------------------------------------------|
-| component                      | object   | Contains merchant settings for fields from twilight.json `component` section |
-| component.slides[].image       | string   | Image url                                                                    |
-| component.slides[].title       | ?string  |                                                                              |
-| component.slides[].description | ?string  |                                                                              |
-| component.slides               | object[] | list of slides                                                               |
-| position                       | int      | Sorting number start from zero                                               |
+    This component is designed to work with the component defined in twilight.json
+    with the key '186b3f4f-25cf-4d3c-abca-cef7eed6f0ab'.
+    It expects a `component` object to be passed with a `slides` collection.
 #}
-<section class="s-block s-block--hero-slider s-block--full-bg wide-placeholder"> 
-    <salla-slider 
-      id="main-slider-{{ position }}"
-      auto-play
-      slider-config='{
-        "lazy": "false"
-      }'
-      type="fullwidth">
-        <div slot="items">
-            {% for slide in component.slides %}
-                <div class="swiper-slide w-full min-h-[300px] lg:min-h-[528px] bg-dark relative">
-					<div style="background-image: url({{ slide.image }});" class="overlay-bg bg-cover bg-center absolute inset-0"></div>
-                    
-                    <div class="flex-center container pb-16 sm:pb-0 home-slider__content relative h-full">
-                        <div class=" w-4/6 text-center md:w-7/12 lg:w-5/12 text-white">
-                            <h2 data-swiper-parallax="-500" class="lg:text-title-size font-bold leading-tight mb-4">{{ slide.title }}</h2>
-                            <p data-swiper-parallax="-300" class="line-clamp-2 description">{{ slide.description }}</p>
-                        </div>
+{% if component.slides|length %}
+<div class="relative hero-slider swiper">
+    <div class="swiper-wrapper">
+        {% for slide in component.slides %}
+            <div class="swiper-slide">
+                <div class="relative bg-cover bg-center h-[400px] md:h-[500px] lg:h-[600px]" style="background-image: url('{{ slide['slides.image'] }}');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                    <div class="container relative h-full flex flex-col justify-center items-start text-white">
+                        {% if slide['slides.title'] %}
+                            <h2 class="text-3xl md:text-5xl font-bold max-w-2xl animate-fade-in-down">
+                                {{ slide['slides.title'] }}
+                            </h2>
+                        {% endif %}
+                        {% if slide['slides.description'] %}
+                            <p class="mt-4 text-lg md:text-xl max-w-xl animate-fade-in-up animation-delay-300">
+                                {{ slide['slides.description'] }}
+                            </p>
+                        {% endif %}
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </salla-slider>
-</section> 
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Slider Controls #}
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <div class="swiper-button-prev text-white"></div>
+    <div class="swiper-button-next text-white"></div>
+</div>
+{% endif %}

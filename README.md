@@ -22,7 +22,7 @@
     <li><a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisite">Prerequisite</a></li>
-        <li><a href="#install">Installation</a></li>
+        <li><a href="#install">Install</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a>
@@ -33,8 +33,9 @@
     </li>
     <li><a href="#main-features">Main Features</a>
       <ul>
-        <li><a href="#theme-features">Theme Features</a></li>
-        <li><a href="#theme-components">Theme Components</a></li>
+        <li><a href="#core-components--pages">Core Components & Pages</a></li>
+        <li><a href="#dynamic-homepage">Dynamic Homepage</a></li>
+        <li><a href="#optional-ux-enhancements">Optional UX Enhancements</a></li>
       </ul>
     </li>
     <li><a href="#support">Support</a></li>
@@ -78,19 +79,17 @@ The theme files live under the `src/` directory:
 
 ```shell
 src
-├── assets
-│   ├── images
-│   ├── js
-│   └── styles
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
 ├── locales
 │   ├── ar.json
 │   └── en.json
-└── views
-    ├── components
-    ├── layouts
-    ├── pages
-    ├── partials
-    └── product
+└── views/
+    ├── components/
+    ├── layouts/
+    └── pages/
 ```
 
 ### Theme Preview
@@ -108,21 +107,29 @@ You can also trigger previews from the Partners Portal by selecting a demo store
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Main Features
-Beto Theme provides a curation of pre-defined and customizable widgets, all configurable via the [`twilight.json`](twilight.json) manifest.
+Beto Theme comes packed with a rich set of features and components, all configurable via the `twilight.json` manifest to provide a highly customizable storefront experience.
 
-### Theme Features
-Key features include:
+### Core Components & Pages
+- **Full E-commerce Flow**: Includes all essential pages: Product, Category, Cart, Checkout, and a full Customer Account dashboard.
+- **Blog Integration**: Features a blog index (`blog.twig`) and single post pages (`post.twig`) to engage with customers.
+- **Responsive Layouts**: A robust `master.twig` layout with `blank.twig` and `checkout.twig` variations for focused user experiences.
+- **Modular Components**: Reusable components like `header.twig`, `footer.twig`, `mobile-nav.twig`, and `product-grid.twig` for consistency and maintainability.
 
-| Component | Description |
-|-----------|-------------|
-| Fixed hero banners | Highlight promotions with static or animated hero sections. |
-| Product sliders | Showcase curated product collections with smooth transitions. |
-| Testimonials | Build trust by highlighting customer stories. |
-| Multimedia sections | Embed rich video, gallery, and parallax experiences. |
-| Mega menu | Offer multi-level navigation with optional imagery. |
+### Dynamic Homepage
+Build a unique homepage by adding, removing, and reordering a variety of components directly from the theme editor:
+- **Enhanced Hero Slider**: A full-width, modern image slider.
+- **Featured Blog Posts**: Showcase your latest articles.
+- **Custom Testimonials**: A carousel for customer reviews.
+- **Brand Logos**: A carousel to display partner or manufacturer logos.
+- **Store Features**: Highlight key benefits like shipping, support, and payment options.
 
-### Theme Components
-Reusable Twig components power the storefront. Explore `src/views/components` to discover header, footer, home-page, product, and modal components that can be extended or overridden per project requirements.
+### Optional UX Enhancements
+The theme includes several user experience improvements that can be toggled on or off:
+- **Page Preloader**: A loading indicator for a smooth page transition.
+- **Dark Mode Toggle**: A user-controlled switch for light and dark themes.
+- **Promo Bar**: A dismissible announcement bar at the top of the site.
+- **Cookie Consent Banner**: A GDPR-compliant banner for cookie consent.
+- **Scroll-to-Top Button**: A convenient button for easy navigation on long pages.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -139,7 +146,7 @@ Need help? Open an [issue](https://github.com/bakhe8/Master/issues/new) or join 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Credits
-Beto Theme is maintained by Bakheet and contributors from the Salla developer ecosystem. Twilight is developed and supported by the Salla team.
+Beto Theme is maintained by Bakheet A. Al-Zahrani and contributors from the Salla developer ecosystem. Twilight is developed and supported by the Salla team.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.

@@ -1,0 +1,17 @@
+{#
+    Beto Theme - Blank Layout
+    --------------------------
+    This layout is intended for minimal pages like login, password reset, etc.,
+    where the main site header and footer are not needed.
+#}
+{% extends "views/layouts/master.twig" %}
+
+{# Override the header block to be empty #}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <main>{% block page_content %}{% endblock %}</main>
+{% endblock %}
+
+{# Override the footer block to be empty #}
+{% block footer %}{% endblock %}

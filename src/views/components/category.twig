@@ -1,0 +1,54 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-16">
+        {# Breadcrumbs #}
+        <salla-breadcrumb></salla-breadcrumb>
+
+        {# Category Header #}
+        <div class="text-center my-8">
+            <h1 class="text-3xl font-bold">{{ category.name }}</h1>
+            {% if category.description %}
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">{{ category.description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {# Filters Sidebar #}
+            <aside class="lg:col-span-1">
+                <salla-filters-widget></salla-filters-widget>
+            </aside>
+
+            {# Products Grid #}
+            <main class="lg:col-span-3">
+                <salla-products-list>
+                    {# Sorting & Results Count #}
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm text-gray-500">{{ trans('pages.categories.results_count', {'count': products.meta.total}) }}</span>
+                        <salla-select on-change="salla.products.sort(event.detail.value)" class="w-48" name="sort" value="{{ request.get('sort')|default(sort.default) }}">
+                            {% for option in sort.options %}
+                                <option value="{{ option.value }}">{{ option.name }}</option>
+                            {% endfor %}
+                        </salla-select>
+                    </div>
+
+                    {# Products Loop #}
+                    {% if products.data|length %}
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                            {% for product in products.data %}
+                                {% include 'views/components/product-grid.twig' with {'product': product} %}
+                            {% endfor %}
+                        </div>
+
+                        {# Pagination #}
+                        <salla-pagination links="{{ products.links|json_encode }}" class="mt-8"></salla-pagination>
+                    {% else %}
+                        <div class="text-center py-20">
+                            <p>{{ trans('pages.categories.no_products') }}</p>
+                        </div>
+                    {% endif %}
+                </salla-products-list>
+            </main>
+        </div>
+    </div>
+{% endblock %}

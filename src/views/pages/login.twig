@@ -1,0 +1,29 @@
+{% extends "views/layouts/blank.twig" %}
+
+{% block page_content %}
+    <div class="container min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-md space-y-8 text-center">
+            <div>
+                {# Store Logo #}
+                <a href="{{ store.url }}" class="logo mb-8 inline-block">
+                    <img src="{{ store.logo }}" alt="{{ store.name }}" class="max-w-[180px] max-h-[80px] object-contain mx-auto">
+                </a>
+            </div>
+
+            {# Salla Login Component handles the entire login form and logic #}
+            <salla-login
+                {% if request.redirect %}
+                    redirect-url="{{ request.redirect }}"
+                {% endif %}
+            ></salla-login>
+
+            {# Link to create a new account #}
+            <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+                {{ trans('pages.login.dont_have_account') }}
+                <a href="{{ link.customer.register }}" class="font-medium text-primary hover:text-secondary">
+                    {{ trans('pages.login.create_account') }}
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

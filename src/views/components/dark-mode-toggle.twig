@@ -1,0 +1,13 @@
+{#
+    Beto Theme - Dark Mode Toggle Component
+    ---------------------------------------
+    A simple button to toggle between light and dark themes.
+    The actual logic is handled in `src/assets/js/dark-mode.js`.
+#}
+<button type="button" id="dark-mode-toggle" class="text-xl text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" aria-label="{{ trans('blocks.header.toggle_dark_mode') }}">
+    {# Moon icon, shown by default (in light mode) #}
+    <i class="sicon-moon-1 dark:hidden"></i>
+
+    {# Sun icon, shown only in dark mode #}
+    <i class="sicon-sun-1 hidden dark:inline"></i>
+</button>

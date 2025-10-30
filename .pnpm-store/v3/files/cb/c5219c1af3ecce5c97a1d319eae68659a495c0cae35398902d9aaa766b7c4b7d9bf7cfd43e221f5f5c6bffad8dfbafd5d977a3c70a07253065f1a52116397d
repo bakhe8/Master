@@ -1,0 +1,121 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { h } from "@stencil/core";
+/**
+ * @slot header - The tab header section. `salla-tab-header` component is used for this purpose.
+ * @slot content - The active tab content section. `salla-tab-content` component is used for this purpose.
+ */
+export class SallaTabs {
+    constructor() {
+        /**
+         * Background color
+         */
+        this.backgroundColor = undefined;
+        /**
+         * Align tabs vertically.
+         */
+        this.vertical = false;
+    }
+    componentWillLoad() {
+        this.createGroup().then(() => {
+            const [group] = this.tabGroup;
+            this.selectGroup(group);
+        });
+    }
+    onSelectedTab(event) {
+        const group = this.tabGroup.find(group => group.header.id === event.detail.id);
+        this.selectGroup(group);
+    }
+    async createGroup() {
+        const tabsHeaderEl = Array.from(this.host.querySelectorAll('salla-tab-header'));
+        this.tabsHeader = await Promise.all(tabsHeaderEl.map(async (el) => await el.getChild()));
+        const tabsContentEl = Array.from(this.host.querySelectorAll('salla-tab-content'));
+        this.tabsContent = await Promise.all(tabsContentEl.map(async (el) => await el.getChild()));
+        this.tabGroup = this.tabsHeader.map(header => {
+            const content = this.tabsContent.find(content => content.name === header.name);
+            return {
+                header: header,
+                content: content
+            };
+        });
+    }
+    selectGroup(group) {
+        this.tabGroup.map(g => {
+            g.header.unselect();
+            g.content.unselect();
+        });
+        group.header.selected();
+        group.content.selected();
+    }
+    render() {
+        return [
+            h("div", { key: '11dca6efd64c797274f2b71aa10426fbdf08d351', class: "s-tabs" }, h("div", { key: '9afd9c6a09728218cddc084c77f417d0249bdfd9', class: "s-tabs-header" }, h("slot", { key: 'eef1f2faed6b440c592e51f6d1205e140584b070', name: "header" })), h("div", { key: 'adb5bd9c1af2ba78c173eb3fbd5c73c0513ccca5', class: "s-tabs-content-wrapper" }, h("slot", { key: 'db9eaa79d095ef71fb1df1ab96ddbb925ec59b40', name: "content" })))
+        ];
+    }
+    static get is() { return "salla-tabs"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-tabs.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-tabs.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "backgroundColor": {
+                "type": "string",
+                "attribute": "background-color",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Background color"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "undefined"
+            },
+            "vertical": {
+                "type": "boolean",
+                "attribute": "vertical",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Align tabs vertically."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "false"
+            }
+        };
+    }
+    static get elementRef() { return "host"; }
+    static get listeners() {
+        return [{
+                "name": "tabSelected",
+                "method": "onSelectedTab",
+                "target": undefined,
+                "capture": false,
+                "passive": false
+            }];
+    }
+}

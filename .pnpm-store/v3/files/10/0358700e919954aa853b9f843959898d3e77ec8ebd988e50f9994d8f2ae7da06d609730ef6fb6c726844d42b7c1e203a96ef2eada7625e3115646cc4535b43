@@ -1,0 +1,86 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { Host, h } from "@stencil/core";
+/**
+ * @slot icon - An icon to display before the title.
+ * @slot title - The primary content of the list tile.
+ * @slot subtitle - Additional content displayed below the title.
+ * @slot action - An element to display after the title.
+ */
+export class SallaListTile {
+    constructor() {
+        /**
+         * Designates the component as anchor and applies the `href` attribute.
+         */
+        this.href = undefined;
+        /**
+         * Designates the target attribute. This should only be applied when using the `href` prop.
+         */
+        this.target = "_self";
+    }
+    generateClass() {
+        return {
+            "s-list-tile-item": true,
+            "s-list-tile-item-href": !!this.href
+        };
+    }
+    render() {
+        return (h(Host, { key: 'ba44695aed1223972f89af7c586a40930b02bf2c' }, h("a", { key: '07372f90536259e785765fd52518d662da064310', class: this.generateClass(), href: this.href || "#", target: this.target, "aria-label": "List Tile Link" }, h("div", { key: '1146861c80badb189b2cee76c1641b6b24cdc81f', class: "s-list-tile-item-icon" }, h("slot", { key: 'e3f28cb3fc224a11345f79dbcc63abda6a5749f2', name: 'icon' })), h("div", { key: '2538211d32d19b14feb87324499402fa86591734', class: "s-list-tile-item-content" }, h("div", { key: 'c099dbf9985c97cf7580ae155f12310033f82d94', class: "s-list-tile-item-title" }, h("slot", { key: 'cbd58b99730b27cc90b2897a82049a0b132a68aa', name: 'title' })), h("div", { key: '9a5d9bde89507382c84910da72baac5b18a0180d', class: "s-list-tile-item-subtitle" }, h("slot", { key: 'b0c042dfece6f5b337cc32892dd10bd4f7705ce0', name: "subtitle" }))), h("div", { key: '500a9175dd419a186e4d8e76d2578183b70d9d88', class: "s-list-tile-item-action" }, h("slot", { key: '6b8eaf7115a0304f7e50aafe251aec0325146a80', name: 'action' })))));
+    }
+    static get is() { return "salla-list-tile"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-list-tile.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-list-tile.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "href": {
+                "type": "string",
+                "attribute": "href",
+                "mutable": false,
+                "complexType": {
+                    "original": "string | undefined",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Designates the component as anchor and applies the `href` attribute."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "undefined"
+            },
+            "target": {
+                "type": "string",
+                "attribute": "target",
+                "mutable": false,
+                "complexType": {
+                    "original": "\"_blank\" | \"_self\" | \"_parent\" | \"_top\" | \"framename\"",
+                    "resolved": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\" | \"framename\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Designates the target attribute. This should only be applied when using the `href` prop."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "\"_self\""
+            }
+        };
+    }
+}

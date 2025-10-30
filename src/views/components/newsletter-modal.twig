@@ -1,0 +1,23 @@
+{#
+    Beto Theme - Newsletter Modal Component
+    ---------------------------------------
+    A popup modal to encourage newsletter subscriptions.
+    Controlled by theme settings and managed by newsletter-modal.js.
+#}
+{% if theme.settings.newsletter_modal_enabled %}
+    <div id="newsletter-modal" class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 hidden" data-status="hidden">
+        <div class="relative bg-white dark:bg-darker rounded-lg shadow-lg w-full max-w-md p-8 text-center transform scale-95 transition-transform duration-300">
+            {# Close Button #}
+            <button type="button" class="js-close-newsletter-modal absolute top-4 end-4 text-gray-400 hover:text-gray-800 dark:hover:text-white" aria-label="{{ trans('blocks.header.close_promo_bar') }}">
+                <i class="sicon-close text-2xl"></i>
+            </button>
+
+            {# Modal Content #}
+            <i class="sicon-paper-plane text-5xl text-primary mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2 dark:text-white">{{ trans('blocks.footer.newsletter_title') }}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">{{ trans('blocks.footer.newsletter_description') }}</p>
+
+            <salla-newsletter></salla-newsletter>
+        </div>
+    </div>
+{% endif %}

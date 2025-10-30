@@ -1,0 +1,61 @@
+{#
+    Beto Theme - Mobile Navigation Drawer Component
+    -----------------------------------------------
+    This component provides a drawer-based navigation for mobile devices.
+    It's toggled via a custom event dispatched from the main header.
+#}
+
+<salla-drawer id="mobile-menu" class="salla-mobile-menu" width="85%" position="start">
+    <div class="flex flex-col h-full">
+        {# Drawer Header: Logo and Close Button #}
+        <div class="flex items-center justify-between p-4 border-b border-light dark:border-darker">
+            <a href="{{ store.url }}" class="logo">
+                <img src="{{ store.logo }}" alt="{{ store.name }}" class="max-w-[120px] max-h-[50px] object-contain">
+            </a>
+            <salla-button fill="outline" shape="icon" class="!border-transparent"
+                          onclick="salla.event.dispatch('mobile-menu::toggle')">
+                <i class="sicon-close"></i>
+            </salla-button>
+        </div>
+
+        {# Drawer Content: Main Navigation Links #}
+        <nav class="flex-1 overflow-y-auto p-4">
+            {# Main Menu for Mobile - uses Salla's Mega Menu feature #}
+            <salla-menu-content
+                    slug="main-menu"
+                    item-class="block py-2 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors"
+                    active-class="!text-primary font-bold">
+            </salla-menu-content>
+
+            {# Additional Mobile Links (e.g., login/register, dark mode toggle) #}
+            <div class="mt-6 pt-4 border-t border-light dark:border-darker">
+                {# Customer Account Link #}
+                <a href="{{ customer ? url('customer.profile') : url('login') }}"
+                   class="flex items-center gap-2 py-2 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors">
+                    <i class="sicon-user text-xl"></i>
+                    <span>{{ customer ? trans('pages.account.title') : trans('pages.login.login') }}</span>
+                </a>
+
+                {# Dark Mode Toggle for Mobile #}
+                {% if theme.settings.dark_mode_enabled %}
+                    <div class="flex items-center justify-between py-2">
+                        <span class="text-lg font-medium text-gray-700 dark:text-gray-200">{{ trans('blocks.header.toggle_dark_mode') }}</span>
+                        {% include "views/components/dark-mode-toggle.twig" %}
+                    </div>
+                {% endif %}
+            </div>
+        </nav>
+
+        {# Optional: Footer for the mobile menu, e.g., social links or copyright #}
+        {# <div class="p-4 border-t border-light dark:border-darker text-center text-sm text-gray-500">
+            &copy; {{ "now"|date("Y") }} {{ store.name }}
+        </div> #}
+    </div>
+</salla-drawer>
+
+{# Add a placeholder for the login translation if it's not already in the locales #}
+{% set_trans %}
+{
+    "pages.login.login": "تسجيل الدخول"
+}
+{% endset_trans %}

@@ -1,0 +1,102 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { h, Host } from "@stencil/core";
+export class SallaSkeleton {
+    constructor() {
+        /**
+       *  Set the shape type of the skeleton is it circle or normal
+       */
+        this.type = 'normal';
+        /**
+       *  Set the skeleton width
+       */
+        this.width = '100%';
+        /**
+       *  Set the skeleton height
+       */
+        this.height = '100%';
+    }
+    render() {
+        const classes = {
+            's-skeleton-item': true,
+            's-skeleton-item-circular': this.type == 'circle',
+        };
+        return (h(Host, { key: 'df1344797b9cbe42331625a2a1f432e07d6bd9ef', class: "s-skeleton-wrapper", style: { width: this.width, height: this.height } }, h("div", { key: 'b56611551bb2b2bcb02b46240e30f88e2ea7aea5', class: classes }, "\u00A0")));
+    }
+    static get is() { return "salla-skeleton"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-skeleton.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-skeleton.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "type": {
+                "type": "string",
+                "attribute": "type",
+                "mutable": false,
+                "complexType": {
+                    "original": "'circle' | 'normal'",
+                    "resolved": "\"circle\" | \"normal\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the shape type of the skeleton is it circle or normal"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'normal'"
+            },
+            "width": {
+                "type": "string",
+                "attribute": "width",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the skeleton width"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'100%'"
+            },
+            "height": {
+                "type": "string",
+                "attribute": "height",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the skeleton height"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'100%'"
+            }
+        };
+    }
+}

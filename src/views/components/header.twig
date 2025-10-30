@@ -1,0 +1,73 @@
+{#
+    Beto Theme - Main Header Component
+    ----------------------------------
+    Includes: Promo Bar, Top Nav, Main Header, Search, Cart Summary, and Mobile Nav Toggler.
+    Features: Sticky header, RTL support, Dark Mode toggle.
+#}
+
+{# 1. Include the optional Promo Bar at the very top #}
+{% if theme.settings.promo_bar_enabled %}
+    {% include "views/components/promo-bar.twig" %}
+{% endif %}
+
+<header id="main-header" class="relative z-20"
+        {# The `s-header-sticky` component handles the sticky logic based on the theme setting #}
+        s-header-sticky="{{ theme.settings.header_is_sticky ? 'true' : 'false' }}">
+
+{# Top Navigation Bar #}
+    <div class="bg-light dark:bg-darker text-sm">
+        <div class="container flex items-center justify-between h-10">
+            {# Placeholder for important links (e.g., blog, about us) #}
+            <div class="hidden md:flex items-center gap-x-5">
+                {# Example Link #}
+                {# <a href="#" class="hover:text-primary">About Us</a> #}
+            </div>
+
+            {# Dark Mode Toggle #}
+            <div class="flex items-center gap-x-5 ms-auto">
+                {% if theme.settings.dark_mode_enabled %}
+                    {% include "views/components/dark-mode-toggle.twig" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {# Main Header Area #}
+    <div class="bg-white dark:bg-dark border-b border-light dark:border-darker">
+        <div class="container flex items-center justify-between h-20">
+            {# Mobile Navigation Toggler (Hamburger Icon) #}
+            <div class="flex items-center md:hidden">
+                <salla-button fill="outline" shape="icon" class="!border-transparent"
+                              onclick="salla.event.dispatch('mobile-menu::toggle')">
+                    <i class="sicon-menu"></i>
+                </salla-button>
+            </div>
+
+            {# Store Logo #}
+            <a href="{{ store.url }}" class="logo mx-auto md:mx-0">
+                <img src="{{ store.logo }}" alt="{{ store.name }}" class="max-w-[150px] max-h-[60px] object-contain">
+            </a>
+
+            {# Main Menu (Desktop) - Uses Salla's Mega Menu feature #}
+            <nav class="hidden md:flex flex-1 justify-center">
+                <salla-menu-content
+                        slug="main-menu"
+                        item-class="text-base font-medium mx-4 py-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        active-class="!text-primary font-bold">
+                </salla-menu-content>
+            </nav>
+
+            {# Header Actions (Search, User, Cart) #}
+            <div class="flex items-center gap-x-2">
+                <salla-search-input placeholder="{{ trans('blocks.header.search_placeholder') | default('Search for products...') }}">
+                    <salla-button fill="outline" shape="icon" class="!border-transparent"><i class="sicon-search"></i></salla-button>
+                </salla-search-input>
+                <salla-login-options><salla-button fill="outline" shape="icon" class="!border-transparent"><i class="sicon-user"></i></salla-button></salla-login-options>
+                <salla-cart-summary><salla-button fill="outline" shape="icon" class="!border-transparent"><i class="sicon-shopping-bag"></i></salla-button></salla-cart-summary>
+            </div>
+        </div>
+    </div>
+</header>
+
+{# Mobile Navigation Drawer - This component will be toggled by the hamburger icon #}
+{% include "views/components/mobile-nav.twig" %}

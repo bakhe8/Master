@@ -1,0 +1,62 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-16">
+        <salla-cart-summary>
+            {% if cart.items %}
+                <h1 class="text-2xl font-bold mb-8">{{ trans('pages.cart.shopping_cart') }}</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-lg shadow-md">
+                            {% for item in cart.items %}
+                                <div class="cart-item flex items-start p-4 border-b last:border-b-0">
+                                    <a href="{{ item.product.url }}">
+                                        <img src="{{ item.product.image.url | default(asset('images/placeholder.png')) }}" alt="{{ item.product.image.alt | default(item.product.name) }}" class="w-24 h-24 object-cover rounded-md">
+                                    </a>
+                                    <div class="flex-1 rtl:mr-4 ltr:ml-4">
+                                        <a href="{{ item.product.url }}" class="font-bold hover:text-primary">{{ item.product.name }}</a>
+                                        <div class="text-sm text-gray-500 mt-1">
+                                            {% for option in item.options %}
+                                                <span>{{ option.name }}: {{ option.value }}</span><br>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="mt-2 font-bold text-primary">
+                                            {{ item.price|money }}
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-end gap-4">
+                                        <salla-quantity-input
+                                            value="{{ item.quantity }}"
+                                            max="{{ item.product.quantity }}"
+                                            on-change="salla.cart.updateItem({id: {{ item.id }}, quantity: event.detail.value})">
+                                        </salla-quantity-input>
+                                        <salla-button shape="icon" fill="none" color="danger" onclick="salla.cart.deleteItem({{ item.id }})">
+                                            <i class="sicon-trash"></i>
+                                        </salla-button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                            <h2 class="text-lg font-bold mb-4">{{ trans('pages.cart.cart_total') }}</h2>
+                            <div class="flex justify-between mb-2"><span>{{ trans('pages.cart.sub_total') }}</span> <span>{{ cart.sub_total|money }}</span></div>
+                            <div class="flex justify-between mb-4"><span>{{ trans('pages.cart.shipping') }}</span> <span>{{ trans('pages.cart.calculated_at_checkout') }}</span></div>
+                            <div class="flex justify-between font-bold text-xl border-t pt-4"><span>{{ trans('pages.cart.total') }}</span> <span>{{ cart.total|money }}</span></div>
+                            <a href="/checkout" class="btn btn--primary btn--lg w-full mt-6">{{ trans('pages.cart.proceed_to_checkout') }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="text-center py-20">
+                    <i class="sicon-shopping-bag text-7xl text-gray-300"></i>
+                    <h2 class="text-2xl font-bold mt-4">{{ trans('pages.cart.empty_cart') }}</h2>
+                    <p class="text-gray-500 mb-6">{{ trans('pages.cart.empty_cart_description') }}</p>
+                    <a href="{{ store.url }}" class="btn btn--primary btn--lg">{{ trans('pages.cart.continue_shopping') }}</a>
+                </div>
+            {% endif %}
+        </salla-cart-summary>
+    </div>
+{% endblock %}

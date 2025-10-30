@@ -1,0 +1,37 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+'use strict';
+
+var index = require('./index-B9asE_s-.js');
+
+const sallaTooltipCss = ".s-tooltip-container{position:relative;display:inline-block}.s-tooltip-item{position:absolute;transform:translateX(-39%);background-color:#baf3e6;color:#004d5a;bottom:100%;left:50%;text-align:center;border-radius:5px;z-index:1;white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none;margin:0 0 16px 8px;padding:12px;max-width:150px;width:190px;white-space:normal;opacity:1}.s-tooltip-item::after{content:\"\";position:absolute;bottom:-10px;left:50%;margin-left:-5px;border-width:5px;border-style:solid;border-color:#baf3e6 transparent transparent transparent}.s-tooltip-item:dir(ltr){transform:translateX(-72%)}";
+
+const SallaTooltip = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.show = false;
+        this.targetElement = null;
+    }
+    handleMouseOver(event) {
+        if (this.targetElement && this.targetElement.contains(event.target)) {
+            this.show = true;
+        }
+    }
+    handleMouseOut(event) {
+        if (this.targetElement && this.targetElement.contains(event.target)) {
+            this.show = false;
+        }
+    }
+    componentDidLoad() {
+        // Find the target element based on the targetSelector prop
+        this.targetElement = document.getElementById(this.targetId);
+    }
+    render() {
+        return (index.h("div", { key: '6ecf6b1fc6569ac532656d7222563527c40211fc', class: "s-tooltip-container" }, index.h("slot", { key: 'c15ba1a0feeca5c7aeb1ef96e1f132b39ef91196' }), this.show && index.h("div", { key: '49a4d1f4767234eb1ec35c653fc2b4ae6b1e9e8d', class: "s-tooltip-item" }, this.text)));
+    }
+    get el() { return index.getElement(this); }
+};
+SallaTooltip.style = sallaTooltipCss;
+
+exports.salla_tooltip = SallaTooltip;

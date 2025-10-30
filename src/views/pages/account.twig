@@ -1,0 +1,18 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-12">
+        {# Page Title & Welcome Message #}
+        <div class="mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-2">{{ trans('pages.account.title') }}</h1>
+            <p class="text-gray-600 dark:text-gray-300">{{ trans('pages.account.welcome', {'name': customer.first_name}) }}</p>
+        </div>
+
+        {#
+            Salla Customer Dashboard Component
+            This web component automatically handles the sidebar navigation (Profile, Orders, Addresses, etc.)
+            and renders the content for the currently active section.
+        #}
+        <salla-customer-dashboard></salla-customer-dashboard>
+    </div>
+{% endblock %}

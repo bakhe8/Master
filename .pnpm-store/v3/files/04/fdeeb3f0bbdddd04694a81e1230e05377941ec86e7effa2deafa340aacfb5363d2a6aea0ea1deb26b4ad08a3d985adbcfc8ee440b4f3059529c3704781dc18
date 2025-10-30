@@ -1,0 +1,89 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { Host, h } from "@stencil/core";
+import Bullhorn from "../../assets/svg/bullhorn.svg";
+import UserOff from "../../assets/svg/user-off.svg";
+import UserCancel from "../../assets/svg/user-cancel.svg";
+export class SallaUserSettings {
+    constructor() {
+        // Texts
+        this.deactivateAccount = salla.lang.get('pages.profile.deactivate_account');
+        this.promotionalMsgs = salla.lang.get('pages.profile.promotional_messages');
+        this.hideMyName = salla.lang.get('pages.profile.hide_my_name');
+        this.hideMyNameDesc = salla.lang.get('pages.profile.hide_my_name_desc');
+        this.deactivateDesc = salla.lang.get('pages.profile.deactivate_account_description');
+        this.promotionalMsgsDesc = salla.lang.get('pages.profile.promotional_messages_description');
+        this.sorryForLeavingText = salla.lang.get('pages.profile.warning_for_deactivate');
+        this.warningText = salla.lang.get('pages.profile.sorry_for_leaving');
+        this.keepAccount = salla.lang.get('pages.profile.keep_account');
+        this.buttonLoading = false;
+        this.canHideName = salla.config.get('store.settings.rating.can_customer_hide_name');
+        salla.onReady(() => {
+            this.isHiddenName = salla.config.get('user.is_hidden_name');
+            this.isNotifiable = salla.config.get('user.is_notifiable');
+            this.canHideName = salla.config.get('store.settings.rating.can_customer_hide_name');
+            if (!this.isNotifiable || !this.isHiddenName) {
+                salla.event.on('profile::info.fetched', res => {
+                    this.isHiddenName = res.data.is_hidden_name;
+                    this.isNotifiable = res.data.is_notifiable;
+                });
+            }
+        });
+        salla.lang.onLoaded(() => {
+            this.deactivateAccount = salla.lang.get('pages.profile.deactivate_account');
+            this.promotionalMsgs = salla.lang.get('pages.profile.promotional_messages');
+            this.hideMyName = salla.lang.get('pages.profile.hide_my_name');
+            this.hideMyNameDesc = salla.lang.get('pages.profile.hide_my_name_desc');
+            this.deactivateDesc = salla.lang.get('pages.profile.deactivate_account_description');
+            this.promotionalMsgsDesc = salla.lang.get('pages.profile.promotional_messages_description');
+            this.warningText = salla.lang.get('pages.profile.warning_for_deactivate');
+            this.sorryForLeavingText = salla.lang.get('pages.profile.sorry_for_leaving');
+            this.keepAccount = salla.lang.get('pages.profile.keep_account');
+        });
+    }
+    toggleSetting(setting, event) {
+        salla.profile.updateSettings({ name: setting, value: event.target.checked });
+    }
+    capitalizeText(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    openDeactivateModal() {
+        this.confirmationModal.setTitle(this.capitalizeText(this.deactivateAccount));
+        this.confirmationModal.open();
+    }
+    async deleteAccount() {
+        await salla.profile.delete().finally(() => this.confirmationModal.close());
+    }
+    render() {
+        return (h(Host, { key: '85b2fe2739f6ac3c55939d3cb9c87fc404413e7f', class: "s-user-settings-wrapper" }, this.canHideName && h("div", { key: 'e46be8b9cb4898c9b676ee67f0750bb654bda953', class: "s-user-settings-section" }, h("salla-list-tile", { key: '48f81d5a9b511c2a8baabab2aab6ad3dcfb98370' }, h("div", { key: '9009c4d612aea7e7a6834b90f38d03d8c95bcc84', slot: "icon", class: "s-user-settings-section-icon" }, h("span", { key: '03f209e6e1e1adbdb130f9b80aed30f0618dd58c', innerHTML: UserCancel })), h("div", { key: 'fb02ca2387806135ac3f074f0a9f30ce4bb325ca', slot: "title", class: "s-user-settings-section-title" }, this.capitalizeText(this.hideMyName)), h("div", { key: '1ddbd1144a59745bf26f4650eb5d050a34d42e8f', slot: "subtitle", class: "s-user-settings-section-subtitle" }, this.capitalizeText(this.hideMyNameDesc)), h("div", { key: '0ff6163a407a53ff100c8d3235212c167dbb006a', slot: 'action', class: "s-user-settings-section-action" }, h("label", { key: '03b817a0bea880c9a2e056d4d8f0fb737dc0e5da', class: "s-toggle" }, h("input", { key: 'fcb56427c6d1ae503abdc768358e9ecfa9139dac', class: "s-toggle-input", checked: this.isHiddenName, onChange: (e) => this.toggleSetting('is_hidden_name', e), type: "checkbox" }), h("div", { key: 'ff312279ede50b86446d1305217053942d05a603', class: "s-toggle-switcher" }))))), h("div", { key: '08cf0045a6f96ae7046d9a7c640e53a5b2cec7dc', class: "s-user-settings-section" }, h("salla-list-tile", { key: '1ccbcd93cf4cef91693603b5b05dbc4f3b85dc65' }, h("div", { key: 'bf5270f2d2cae798463ab9516c11321e96c461ff', slot: "icon", class: "s-user-settings-section-icon" }, h("span", { key: '3bc3927296faa253a8b91710049eca3372fb24aa', innerHTML: Bullhorn })), h("div", { key: '60ddca373590545a7fd03498e4ff7306a23b05a9', slot: "title", class: "s-user-settings-section-title" }, this.capitalizeText(this.promotionalMsgs)), h("div", { key: '874e81d5e4727160a85bb3381fdfadcd65e774c0', slot: "subtitle", class: "s-user-settings-section-subtitle" }, this.capitalizeText(this.promotionalMsgsDesc)), h("div", { key: '6d2aacf7a72c4d25163913eccbb0a3e94595ec75', slot: 'action', class: "s-user-settings-section-action" }, h("label", { key: 'cf58459624592b34083afe61a0afc29dea03864e', class: "s-toggle" }, h("input", { key: 'b854ce4ca8224c8200623aad0dea4c659d89dee1', class: "s-toggle-input", checked: this.isNotifiable, onChange: (e) => this.toggleSetting('is_notifiable', e), type: "checkbox" }), h("div", { key: '785a5765e36056629a23ca53e48715f91c14ee1f', class: "s-toggle-switcher" }))))), h("div", { key: '9f58724a8d748809b39874efaa861643a78076eb', class: "s-user-settings-section s-user-settings-section-deactivate-user" }, h("salla-list-tile", { key: '12a69027f2822b6fa1e8fb641278932fc2206335' }, h("div", { key: '679eec74598612167c77443e5f6977991b333fd7', slot: "icon", class: "s-user-settings-section-icon" }, h("span", { key: '0263f8f31ad3e4ca60f2bb4bae910c143f2d36a8', innerHTML: UserOff })), h("div", { key: '6c0c17dfbcbb48ae3882b07b58fb0d1245a28cdb', slot: "title", class: "s-user-settings-section-title" }, this.capitalizeText(this.deactivateAccount)), h("div", { key: '07389c3b86b3d8e821b8b9c33cf43de1ee6527db', slot: "subtitle", class: "s-user-settings-section-subtitle" }, this.capitalizeText(this.deactivateDesc)), h("div", { key: 'e98736162d465c0717550eb8231b120acfafc4f6', slot: 'action', class: "s-user-settings-section-action" }, h("salla-button", { key: 'd29c5023b3a35f95c94a06dc87f0e2504b3a6390', fill: "outline", color: "danger", shape: "btn", size: "medium", width: "normal", onClick: () => this.openDeactivateModal() }, this.capitalizeText(this.deactivateAccount))))), h("salla-modal", { key: '6f23ca61fe62de261e7d2f616a4d5bf13fba1577', width: "sm", subTitle: this.capitalizeText(this.sorryForLeavingText), ref: modal => this.confirmationModal = modal }, h("span", { key: '89073dfc15d4a1349618180c776968012e843556', slot: 'icon', class: "s-user-settings-confirmation-icon", innerHTML: UserOff }), h("div", { key: 'f464a56ab783c4ddd51cc40e4d4dbf2f4ae21be2', class: "s-user-settings-confirmation" }, h("div", { key: 'e9921faaf8718ba51937006360b11d409bde4e05', class: "s-user-settings-confirmation-warning" }, this.capitalizeText(this.warningText)), h("div", { key: '4a71df323e6fa2b86cb85e77af438a51e9c1c5a9', class: "s-user-settings-confirmation-actions" }, h("salla-button", { key: '156249d17bdcc25b7c586af416001ec60e8b0f5b', width: "wide", onClick: () => this.confirmationModal.close() }, this.capitalizeText(this.keepAccount)), h("salla-button", { key: 'acbe44c04f77f8ccdcaeb90bfb731de399f88fc7', fill: 'outline', loading: this.buttonLoading, width: "wide", onClick: () => this.deleteAccount() }, this.capitalizeText(this.deactivateAccount)))))));
+    }
+    static get is() { return "salla-user-settings"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-user-settings.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-user-settings.css"]
+        };
+    }
+    static get states() {
+        return {
+            "deactivateAccount": {},
+            "promotionalMsgs": {},
+            "hideMyName": {},
+            "hideMyNameDesc": {},
+            "deactivateDesc": {},
+            "promotionalMsgsDesc": {},
+            "sorryForLeavingText": {},
+            "warningText": {},
+            "keepAccount": {},
+            "buttonLoading": {},
+            "canHideName": {},
+            "isHiddenName": {},
+            "isNotifiable": {}
+        };
+    }
+}

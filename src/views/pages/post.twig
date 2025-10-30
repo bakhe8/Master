@@ -1,0 +1,49 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-12">
+        {# Breadcrumbs #}
+        <salla-breadcrumb></salla-breadcrumb>
+
+        <article class="max-w-4xl mx-auto mt-8">
+            {# Post Header #}
+            <header class="mb-8">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mb-4">{{ post.title }}</h1>
+                <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <span>{{ trans('pages.post.by') }} {{ post.author.name }}</span>
+                    <span>&bull;</span>
+                    <span>{{ trans('pages.post.published_on') }} {{ post.published_at|date('F d, Y') }}</span>
+                </div>
+            </header>
+
+            {# Featured Image #}
+            {% if post.image %}
+                <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full rounded-lg mb-8">
+            {% endif %}
+
+            {# Post Content #}
+            <div class="prose dark:prose-invert max-w-none leading-loose">
+                {{ post.content|raw }}
+            </div>
+        </article>
+
+        {# Related Posts #}
+        {% if post.related_posts|length %}
+            <div class="max-w-4xl mx-auto mt-12 lg:mt-20 pt-8 border-t border-light dark:border-darker">
+                <h2 class="text-2xl font-bold mb-6 dark:text-white">{{ trans('pages.post.related_posts') }}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {% for related_post in post.related_posts %}
+                        <div class="related-post-card group">
+                            <a href="{{ related_post.url }}" class="block overflow-hidden rounded-lg mb-4">
+                                <img src="{{ related_post.image }}" alt="{{ related_post.title }}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </a>
+                            <h3 class="text-lg font-bold">
+                                <a href="{{ related_post.url }}" class="hover:text-primary dark:text-gray-200 dark:hover:text-primary">{{ related_post.title }}</a>
+                            </h3>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

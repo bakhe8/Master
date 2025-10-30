@@ -31,9 +31,17 @@ module.exports = {
                 'auto-fill'  : 'repeat(auto-fill, 290px)',
             },
             colors             : {
-                'dark'         : '#1D1F1F',
-                'darker'       : '#0E0F0F',
-                'danger'       : '#AE0A0A'
+                'dark'    : '#1D1F1F',
+                'darker'  : '#0E0F0F',
+                'danger'  : '#AE0A0A',
+                // Beto Palette
+                'primary' : '#11224E',
+                'secondary': '#0046FF',
+                'accent'  : '#73C8D2',
+                'warning' : '#FF8040',
+                'sun'     : '#FCC61D',
+                'light'   : '#E9E9E9',
+                'success' : '#10b981',
             },
             spacing: {
               '3.75': '15px',
@@ -138,4 +146,3 @@ module.exports = {
       require('@tailwindcss/forms'),
     ],
 }
-

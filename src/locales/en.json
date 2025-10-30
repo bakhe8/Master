@@ -1,15 +1,76 @@
 {
   "blocks": {
     "header": {
-      "cart": "Cart"
+      "cart": "Cart",
+      "main_menu": "Main Menu",
+      "toggle_dark_mode": "Toggle Dark Mode",
+      "close_promo_bar": "Close promo bar"
     },
-    "appBanner": {
-      "download_now": "download now"
+    "appBanner": { "download_now": "download now" },
+    "footer": {
+      "description": "Your first destination for shopping.",
+      "quick_links": "Quick Links",
+      "newsletter_title": "Subscribe to our newsletter",
+      "newsletter_description": "Stay up to date with our latest products and offers.",
+      "rights": "© :year :store. All rights reserved."
     }
   },
   "pages": {
+    "categories": {
+      "results_count": "Showing :count results",
+      "no_products": "There are no products in this category."
+    },
     "cart": {
-      "cart_options": "Cart Options"
+      "cart_options": "Cart Options",
+      "shopping_cart": "Shopping Cart",
+      "cart_total": "Cart Total",
+      "sub_total": "Subtotal",
+      "shipping": "Shipping",
+      "calculated_at_checkout": "Calculated at checkout",
+      "total": "Total",
+      "proceed_to_checkout": "Proceed to Checkout",
+      "empty_cart": "Your Cart is Empty",
+      "empty_cart_description": "Looks like you haven't added anything to your cart yet.",
+      "continue_shopping": "Continue Shopping"
+    },
+    "login": {
+      "dont_have_account": "Don't have an account?",
+      "login": "Login",
+      "create_account": "Create a new account"
+    },
+    "product": {
+      "sku": "SKU",
+      "in_stock": "In Stock",
+      "out_of_stock": "Out of Stock",
+      "reviews": "reviews",
+      "add_to_cart": "Add to Cart",
+      "description": "Description",
+      "related_products": "Related Products"
+    },
+    "account": {
+      "title": "My Account",
+      "welcome": "Welcome, :name",
+      "profile": "Profile",
+      "orders": "Orders",
+      "addresses": "Addresses",
+      "wishlist": "Wishlist",
+      "logout": "Logout"
+    },
+    "blog": {
+      "title": "Blog",
+      "no_posts": "No Posts Found",
+      "no_posts_description": "There are no posts to display yet.",
+      "read_more": "Read More"
+    },
+    "post": {
+      "by": "By",
+      "published_on": "Published on",
+      "related_posts": "Related Posts"
+    },
+    "search": {
+      "title": "Search results for: ':query'",
+      "no_results": "No Results Found",
+      "no_results_description": "Try searching with different keywords or check your spelling."
     },
     "order": {
       "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
@@ -22,6 +83,12 @@
   },
   "common": {
     "bank_offer_sub_title_multiple": "Pay for your purchases via one of the following bank cards and get the specified discount",
-    "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get discount"
+    "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get a discount",
+    "scroll_to_top": "Scroll to top",
+    "cookie_consent": {
+      "message": "We use cookies to improve your experience.",
+      "learn_more": "Learn more.",
+      "accept": "Accept"
+    }
   }
 }

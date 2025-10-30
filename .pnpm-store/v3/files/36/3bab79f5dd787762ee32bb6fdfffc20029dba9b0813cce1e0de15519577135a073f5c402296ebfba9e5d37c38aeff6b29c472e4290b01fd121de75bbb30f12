@@ -1,0 +1,174 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { Host, h } from "@stencil/core";
+export class SallaMultipleBundleProductSlider {
+    constructor() {
+        this.selectedProducts = {};
+        this.handleProductClick = (product, productIndex) => {
+            // Find the checkbox input for this product
+            const checkboxId = this.generateEventName(this.section.id, productIndex);
+            const checkbox = document.getElementById(checkboxId);
+            if (!checkbox)
+                return;
+            if (checkbox) {
+                // Toggle the checkbox state
+                checkbox.checked = !checkbox.checked;
+                // Dispatch a change event to trigger form validation/submission
+                const changeEvent = new window.Event('change', { bubbles: true });
+                checkbox.dispatchEvent(changeEvent);
+            }
+            this.productSelected.emit({
+                product,
+                sectionId: this.section.id,
+            });
+        };
+        this.handleOptionsClick = (product) => {
+            this.productOptionsSelected.emit({
+                product,
+                sectionId: this.section.id,
+            });
+        };
+    }
+    generateEventName(sectionId, productIndex) {
+        return `bundle[${sectionId}][${productIndex}][id]`;
+    }
+    render() {
+        return (h(Host, { key: '8c1d316ceeb7a0833d689695f00569a0da1d642e' }, h("salla-slider", { key: 'ca86cee09dc4f8c48edf14bfb4a26b86982fd84d', type: "carousel", controlsOuter: false, showControls: false, id: "accordion-multiple-bundle-product", pagination: true, class: "s-multiple-bundle-product-wrapper-slider", sliderConfig: {
+                spaceBetween: 0,
+            } }, h("div", { key: 'b59ac0393f6e826658dcca7eef8c2c21019664d4', slot: "items" }, this?.section?.products?.map((product, productIndex) => {
+            const isChecked = this.selectedProducts[this.section.id]?.has(product.id) || false;
+            return (h("div", { class: `swiper-slide s-multiple-bundle-product-slide-one-third ${product.quantity == 0
+                    ? 's-multiple-bundle-product-slide-one-third-disabled'
+                    : ''}`, key: product.id }, h("div", { class: "s-multiple-bundle-product-card" }, h("div", { class: "s-multiple-bundle-product-image-wrapper", onClick: () => this.handleProductClick(product, productIndex) }, h("input", { id: this.generateEventName(this.section.id, productIndex), type: "checkbox", class: "s-multiple-bundle-product-checkbox", checked: isChecked, name: this.generateEventName(this.section.id, productIndex), value: product.id }), h("img", { src: product.image.url || salla.url.cdn('images/s-empty.png'), loading: "lazy", alt: product.image.alt || product.name, class: "s-multiple-bundle-product-image" })), h("div", { class: "s-multiple-bundle-product-content-wrapper" }, h("div", { class: "s-multiple-bundle-product-content" }, h("div", { class: "s-multiple-bundle-product-details" }, h("div", { class: "s-multiple-bundle-product-title-wrapper" }, h("h2", { class: "s-multiple-bundle-product-title" }, product.name)), h("div", { class: "s-multiple-bundle-product-price-wrapper" }, h("span", { class: "s-multiple-bundle-product-price" }, h("span", { innerHTML: salla.money(product.price) })), product.sale_price > 0 && (h("span", { class: "s-multiple-bundle-product-price-discount" }, h("span", { innerHTML: salla.money(product.sale_price) }))))), product.quantity_in_group > 0 && product.quantity !== 0 && (h("span", { class: "s-multiple-bundle-product-badge" }, salla.lang.get('pages.products.pieces'), h("span", null, product.quantity_in_group))), product.quantity === 0 && (h("span", { class: "s-multiple-bundle-product-badge" }, salla.lang.get('pages.products.quantity_in_group_finished')))), product.options?.length > 0 && (h("button", { class: "s-multiple-bundle-product-button", onClick: () => this.handleOptionsClick(product), type: "button" }, salla.lang.get('pages.products.choose_from_options'), h("i", { class: "sicon-keyboard_arrow_left s-multiple-bundle-product-button-icon" })))))));
+        })))));
+    }
+    static get is() { return "salla-multiple-bundle-product-slider"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-multiple-bundle-product-slider.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-multiple-bundle-product-slider.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "section": {
+                "type": "unknown",
+                "attribute": "section",
+                "mutable": false,
+                "complexType": {
+                    "original": "BundleSection",
+                    "resolved": "BundleSection",
+                    "references": {
+                        "BundleSection": {
+                            "location": "import",
+                            "path": "../interfaces",
+                            "id": "src/components/salla-multiple-bundle-product/interfaces.ts::BundleSection"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": ""
+                },
+                "getter": false,
+                "setter": false
+            },
+            "sectionIndex": {
+                "type": "number",
+                "attribute": "section-index",
+                "mutable": false,
+                "complexType": {
+                    "original": "number",
+                    "resolved": "number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": ""
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
+            },
+            "selectedProducts": {
+                "type": "unknown",
+                "attribute": "selected-products",
+                "mutable": false,
+                "complexType": {
+                    "original": "{ [sectionId: string]: Set<string | number> }",
+                    "resolved": "{ [sectionId: string]: Set<string | number>; }",
+                    "references": {
+                        "Set": {
+                            "location": "global",
+                            "id": "global::Set"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": ""
+                },
+                "getter": false,
+                "setter": false,
+                "defaultValue": "{}"
+            }
+        };
+    }
+    static get events() {
+        return [{
+                "method": "productSelected",
+                "name": "productSelected",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": ""
+                },
+                "complexType": {
+                    "original": "{ product: BundleProduct; sectionId: string | number }",
+                    "resolved": "{ product: BundleProduct; sectionId: string | number; }",
+                    "references": {
+                        "BundleProduct": {
+                            "location": "import",
+                            "path": "../interfaces",
+                            "id": "src/components/salla-multiple-bundle-product/interfaces.ts::BundleProduct"
+                        }
+                    }
+                }
+            }, {
+                "method": "productOptionsSelected",
+                "name": "productOptionsSelected",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": ""
+                },
+                "complexType": {
+                    "original": "{\n    product: BundleProduct;\n    sectionId: string | number;\n  }",
+                    "resolved": "{ product: BundleProduct; sectionId: string | number; }",
+                    "references": {
+                        "BundleProduct": {
+                            "location": "import",
+                            "path": "../interfaces",
+                            "id": "src/components/salla-multiple-bundle-product/interfaces.ts::BundleProduct"
+                        }
+                    }
+                }
+            }];
+    }
+    static get elementRef() { return "host"; }
+}

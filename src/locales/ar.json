@@ -1,27 +1,86 @@
 {
   "blocks": {
     "header": {
-      "cart": "السلة"
+      "cart": "السلة",
+      "main_menu": "القائمة الرئيسية",
+      "toggle_dark_mode": "تبديل الوضع الداكن",
+      "close_promo_bar": "إغلاق شريط العروض"
     },
-    "appBanner": {
-      "download_now": "حمله الان"
+    "appBanner": { "download_now": "حمل التطبيق" },
+    "footer": {
+      "description": "وجهتك الأولى للتسوق.",
+      "quick_links": "روابط سريعة",
+      "newsletter_title": "اشترك في النشرة البريدية",
+      "newsletter_description": "كن على اطلاع بآخر منتجاتنا وعروضنا.",
+      "rights": "© :year :store. جميع الحقوق محفوظة."
     }
   },
   "pages": {
-    "cart": {
-      "cart_options": "خيارات السلة"
+    "categories": {
+      "results_count": "عرض :count نتيجة",
+      "no_products": "لا يوجد منتجات في هذا التصنيف."
     },
-    "order": {
-      "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
-      "edit_period_ended": "تم انتهاء المدة المحددة لتعديل التقييم",
-      "delete_period_ended": "تم انتهاء المدة المحددة لحذف التقييم",
-      "days_since_added": "أيام من إضافته",
-      "option_name": "الخيار",
-      "option_content": "المحتوى"
+    "cart": {
+      "cart_options": "خيارات السلة",
+      "shopping_cart": "سلة التسوق",
+      "cart_total": "إجمالي السلة",
+      "sub_total": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "calculated_at_checkout": "يتم حسابه عند الدفع",
+      "total": "الإجمالي",
+      "proceed_to_checkout": "إتمام الطلب",
+      "empty_cart": "سلتك فارغة",
+      "empty_cart_description": "يبدو أنك لم تقم بإضافة أي شيء إلى سلتك بعد.",
+      "continue_shopping": "متابعة التسوق"
+    },
+    "login": {
+      "dont_have_account": "ليس لديك حساب؟",
+      "login": "تسجيل الدخول",
+      "create_account": "أنشئ حساب جديد"
+    },
+    "product": {
+      "sku": "الرقم التعريفي للمنتج",
+      "in_stock": "متوفر",
+      "out_of_stock": "غير متوفر",
+      "reviews": "تقييمات",
+      "add_to_cart": "أضف إلى السلة",
+      "description": "الوصف",
+      "related_products": "منتجات ذات صلة"
+    },
+    "account": {
+      "title": "حسابي",
+      "welcome": "أهلاً بك، :name",
+      "profile": "الملف الشخصي",
+      "orders": "الطلبات",
+      "addresses": "العناوين",
+      "wishlist": "قائمة الأمنيات",
+      "logout": "تسجيل الخروج"
+    },
+    "blog": {
+      "title": "المدونة",
+      "no_posts": "لا توجد تدوينات",
+      "no_posts_description": "لم يتم إضافة أي تدوينات حتى الآن.",
+      "read_more": "اقرأ المزيد"
+    },
+    "post": {
+      "by": "بواسطة",
+      "published_on": "نشر في",
+      "related_posts": "تدوينات ذات صلة"
+    },
+    "search": {
+      "title": "نتائج البحث عن: ':query'",
+      "no_results": "لم يتم العثور على نتائج",
+      "no_results_description": "حاول البحث بكلمات أخرى أو تحقق من الإملاء."
     }
   },
   "common": {
-    "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر أحد البطاقات البنكة التالية واحصل على الخصم المحدد",
-    "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر أحد بطاقات بنك :bank_name واحصل على خصم بنسبة "
+    "bank_offer_sub_title_multiple": "ادفع مشترياتك عبر إحدى البطاقات البنكية التالية واحصل على الخصم المحدد",
+    "bank_offer_sub_title_single": "ادفع مشترياتك عبر بطاقة :bank_name البنكية واحصل على الخصم",
+    "scroll_to_top": "العودة للأعلى",
+    "cookie_consent": {
+      "message": "نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك.",
+      "learn_more": "اعرف المزيد.",
+      "accept": "موافق"
+    }
   }
 }

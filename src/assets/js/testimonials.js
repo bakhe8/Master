@@ -1,22 +1,37 @@
-import BasePage from './base-page';
+/**
+ * TestimonialsSlider Class
+ *
+ * Initializes a Swiper.js carousel for the testimonials component.
+ * It's responsive and includes pagination.
+ */
+class TestimonialsSlider {
+    constructor() {
+        this.slider = document.querySelector('.testimonials-slider');
+        this.init();
+    }
 
-class Testimonials extends BasePage {
-    onReady() {
-        let commentsList = app.element('salla-comments');
-
-
-        let urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('sort')) {
-            app.element('#testimonials-filter').value = urlParams.get('sort');
+    init() {
+        if (!this.slider) {
+            return;
         }
 
-        app.on('change', '#testimonials-filter', async (event) => {
-            window.history.replaceState(null, null, salla.helpers.addParamToUrl('sort', event.currentTarget.value));
-            commentsList.sort = event.currentTarget.value;
-            await commentsList.reload();
-            commentsList.setAttribute('sort', event.currentTarget.value)
+        // salla.helpers.swiper is a built-in utility that lazy-loads Swiper.js
+        salla.helpers.swiper(this.slider, {
+            // Optional parameters
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+            },
         });
     }
 }
 
-Testimonials.initiateWhenReady(['testimonials']);
+document.addEventListener('DOMContentLoaded', () => new TestimonialsSlider());

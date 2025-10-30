@@ -1,11 +1,71 @@
 import "lite-youtube-embed";
-import BasePage from "./base-page";
 import Lightbox from "fslightbox";
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+
 window.fslightbox = Lightbox;
 
-class Home extends BasePage {
-    onReady() {
+class Home {
+    constructor() {
+        this.initiateHeroSlider();
+        this.initTestimonialsSlider();
+        this.initBrandsSlider();
         this.initFeaturedTabs();
+    }
+
+    initiateHeroSlider() {
+        new Swiper('.hero-slider', {
+            modules: [Navigation, Pagination, Autoplay],
+            loop: true,
+            autoplay: {
+                delay: 5000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
+
+    initTestimonialsSlider() {
+        new Swiper('.testimonials-slider', {
+            modules: [Pagination, Autoplay],
+            loop: true,
+            autoplay: {
+                delay: 8000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                768: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 40 },
+            },
+        });
+    }
+
+    initBrandsSlider() {
+        new Swiper('.brands-slider', {
+            modules: [Autoplay],
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 2,
+            spaceBetween: 15,
+            breakpoints: {
+                640: { slidesPerView: 3, spaceBetween: 20 },
+                768: { slidesPerView: 4, spaceBetween: 30 },
+                1024: { slidesPerView: 6, spaceBetween: 40 },
+            },
+        });
     }
 
     /**
@@ -27,4 +87,9 @@ class Home extends BasePage {
     }
 }
 
-Home.initiateWhenReady(['index']);
+document.addEventListener('DOMContentLoaded', () => {
+    // Only initialize homepage scripts if a homepage-specific element exists.
+    if (document.querySelector('.hero-slider, .testimonials-slider, .brands-slider')) {
+        new Home();
+    }
+});

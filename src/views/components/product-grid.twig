@@ -1,0 +1,50 @@
+{#
+    Beto Theme - Product Grid Item Component
+    ----------------------------------------
+    A reusable card for displaying a single product in a grid.
+    Expects a `product` object to be passed to it.
+#}
+
+<div class="product-card group relative border border-light dark:border-darker rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-lg bg-white dark:bg-dark">
+    <div class="product-card__image relative">
+        <a href="{{ product.url }}">
+            <img src="{{ product.image.url | default('https://cdn.salla.sa/defaults/image-placeholder.png') }}"
+                 alt="{{ product.image.alt | default(product.name) }}"
+                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+        </a>
+
+        {# Badges for Sale/Out of Stock #}
+        <div class="absolute top-3 start-3 space-y-2">
+            {% if product.is_on_sale %}
+                <span class="bg-danger text-white text-xs font-bold px-2 py-1 rounded">{{ trans('pages.product.on_sale') }}</span>
+            {% endif %}
+            {% if product.is_out_of_stock %}
+                <span class="bg-gray-500 text-white text-xs font-bold px-2 py-1 rounded">{{ trans('pages.product.out_of_stock') }}</span>
+            {% endif %}
+        </div>
+
+        {# Wishlist Button #}
+        <div class="absolute top-3 end-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <salla-add-to-wishlist product-id="{{ product.id }}"></salla-add-to-wishlist>
+        </div>
+    </div>
+
+    <div class="product-card__content p-4">
+        <h3 class="text-base font-medium truncate mb-2">
+            <a href="{{ product.url }}" class="hover:text-primary dark:text-gray-200 dark:hover:text-primary">
+                {{ product.name }}
+            </a>
+        </h3>
+
+        {# Price - Salla's web component handles sale price logic #}
+        <salla-price class="block text-lg font-bold text-primary mb-4" product-id="{{ product.id }}"></salla-price>
+
+        {# Add to Cart Button - Appears on hover #}
+        <div class="actions opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <salla-add-to-cart-button product-id="{{ product.id }}"
+                                      product-status="{{ product.status }}"
+                                      product-type="{{ product.type }}">
+            </salla-add-to-cart-button>
+        </div>
+    </div>
+</div>

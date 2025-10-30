@@ -1,0 +1,66 @@
+{#
+    Beto Theme - Main Footer Component
+    ----------------------------------
+    Includes: Store info, quick links, newsletter subscription, and copyright.
+    Features: Dark mode support, dynamic menus, and social links.
+#}
+
+{% set is_dark = theme.settings.footer_is_dark %}
+
+<footer class="footer {{ is_dark ? 'bg-darker text-gray-300' : 'bg-gray-50 text-gray-700' }}">
+    <div class="container py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {# 1. Store Info & Social Links #}
+            <div class="space-y-4">
+                <a href="{{ store.url }}" class="logo">
+                    {# Invert logo colors if the footer is dark and the original logo is not light #}
+                    <img src="{{ store.logo }}" alt="{{ store.name }}" class="max-w-[150px] max-h-[60px] object-contain {{ is_dark ? 'brightness-0 invert' : '' }}">
+                </a>
+                <p class="text-sm">{{ trans('blocks.footer.description') }}</p>
+                {# Social Links - dynamically loaded from store settings #}
+                {% if store.social %}
+                    <div class="flex items-center gap-3 pt-2">
+                        {% for network, link in store.social if link %}
+                            <a href="{{ link }}" target="_blank" rel="noopener" class="text-xl hover:text-primary transition-colors" aria-label="{{ network|capitalize }}">
+                                <i class="sicon-{{ network }}"></i>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            {# 2. Quick Links #}
+            <div>
+                <h3 class="text-lg font-bold mb-4">{{ trans('blocks.footer.quick_links') }}</h3>
+                <ul class="space-y-2">
+                    {# Uses a menu with the slug 'footer' from Salla's navigation settings #}
+                    {% for item in salla.menu.get('footer') %}
+                        <li>
+                            <a href="{{ item.url }}" class="text-sm hover:text-primary transition-colors">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# 3. Newsletter Subscription #}
+            <div>
+                <h3 class="text-lg font-bold mb-4">{{ trans('blocks.footer.newsletter_title') }}</h3>
+                <p class="text-sm mb-4">{{ trans('blocks.footer.newsletter_description') }}</p>
+                <salla-newsletter></salla-newsletter>
+            </div>
+
+            {# 4. Placeholder for App Download or other info #}
+            <div>
+                {# You can add app download links or other widgets here #}
+            </div>
+        </div>
+    </div>
+
+    {# Bottom Bar with Copyright & Payment Icons #}
+    <div class="border-t {{ is_dark ? 'border-gray-700' : 'border-gray-200' }}">
+        <div class="container flex flex-col md:flex-row items-center justify-between py-4 text-sm">
+            <p>{{ trans('blocks.footer.rights', {'year': "now"|date("Y"), 'store': store.name}) }}</p>
+            <salla-payment-logos></salla-payment-logos>
+        </div>
+    </div>
+</footer>

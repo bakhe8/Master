@@ -1,0 +1,101 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { h } from "@stencil/core";
+export class SallaTooltip {
+    constructor() {
+        this.show = false;
+        this.targetElement = null;
+    }
+    handleMouseOver(event) {
+        if (this.targetElement && this.targetElement.contains(event.target)) {
+            this.show = true;
+        }
+    }
+    handleMouseOut(event) {
+        if (this.targetElement && this.targetElement.contains(event.target)) {
+            this.show = false;
+        }
+    }
+    componentDidLoad() {
+        // Find the target element based on the targetSelector prop
+        this.targetElement = document.getElementById(this.targetId);
+    }
+    render() {
+        return (h("div", { key: '6ecf6b1fc6569ac532656d7222563527c40211fc', class: "s-tooltip-container" }, h("slot", { key: 'c15ba1a0feeca5c7aeb1ef96e1f132b39ef91196' }), this.show && h("div", { key: '49a4d1f4767234eb1ec35c653fc2b4ae6b1e9e8d', class: "s-tooltip-item" }, this.text)));
+    }
+    static get is() { return "salla-tooltip"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-tooltip.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-tooltip.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "text": {
+                "type": "string",
+                "attribute": "text",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "The text content to display in the tooltip"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
+            },
+            "targetId": {
+                "type": "string",
+                "attribute": "target-id",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "The ID of the target element to which the tooltip is attached"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
+            }
+        };
+    }
+    static get states() {
+        return {
+            "show": {}
+        };
+    }
+    static get elementRef() { return "el"; }
+    static get listeners() {
+        return [{
+                "name": "mouseover",
+                "method": "handleMouseOver",
+                "target": "window",
+                "capture": false,
+                "passive": true
+            }, {
+                "name": "mouseout",
+                "method": "handleMouseOut",
+                "target": "window",
+                "capture": false,
+                "passive": true
+            }];
+    }
+}

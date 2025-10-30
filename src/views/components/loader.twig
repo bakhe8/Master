@@ -1,0 +1,11 @@
+{#
+    Beto Theme - Page Loader Component
+    ----------------------------------
+    A preloader that shows while the page content is loading.
+    Controlled by theme settings.
+#}
+{% if theme.settings.loader_enabled %}
+    <div id="page-loader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-darker transition-opacity duration-500">
+        <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    </div>
+{% endif %}

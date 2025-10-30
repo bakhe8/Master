@@ -1,0 +1,22 @@
+{#
+    Beto Theme - Cookie Consent Component
+    -------------------------------------
+    A GDPR-compliant banner for cookie consent.
+    Controlled by theme settings and managed by cookie-consent.js.
+#}
+{% if theme.settings.cookie_consent_enabled %}
+    <div id="cookie-consent-banner" class="fixed bottom-0 start-0 end-0 z-50 bg-darker text-white p-4 transform translate-y-full transition-transform duration-500 ease-elastic hidden" data-status="hidden">
+        <div class="container flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-center md:text-start">
+                {{ trans('common.cookie_consent.message') }}
+                {% set policy_page = theme.settings.cookie_consent_policy_page.url %}
+                {% if policy_page %}
+                    <a href="{{ policy_page }}" class="underline hover:text-primary">{{ trans('common.cookie_consent.learn_more') }}</a>
+                {% endif %}
+            </p>
+            <salla-button class="js-accept-cookies w-full md:w-auto" color="light" size="small">
+                {{ trans('common.cookie_consent.accept') }}
+            </salla-button>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,7 @@
+{% extends "layouts/master.twig" %}
+
+{% block content %}
+    {% for component in components %}
+        {% include "components/" ~ component.path|replace({'.': '/'}) ~ ".twig" with { 'component': component } %}
+    {% endfor %}
+{% endblock %}

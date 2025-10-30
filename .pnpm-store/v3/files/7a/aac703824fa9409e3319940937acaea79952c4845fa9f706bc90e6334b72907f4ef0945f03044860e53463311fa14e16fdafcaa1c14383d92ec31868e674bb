@@ -1,0 +1,216 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { Host, h } from "@stencil/core";
+import Add from "../../assets/svg/add.svg";
+import Minus from "../../assets/svg/minus.svg";
+import Helper from "../../Helpers/Helper";
+export class SallaQuantityInput {
+    constructor() {
+        this.hostAttributes = {};
+        this.hasIncrementSlot = false;
+        this.hasDecrementSlot = false;
+        this.didLoaded = false;
+        this.quantity = 1;
+        this.fireChangeEvent = true;
+    }
+    /**
+     * Workaround to fire change event for the input.
+     */
+    watchPropHandler() {
+        if (!this.didLoaded) {
+            return;
+        }
+        if (!this.fireChangeEvent) {
+            this.fireChangeEvent = true;
+            return;
+        }
+        Helper.debounce(() => {
+            salla.document.event.fireEvent(this.textInput, 'change', {
+                bubbles: true,
+                detail: { productId: this.cartItemId, quantity: this.quantity }
+            });
+        });
+    }
+    componentWillLoad() {
+        this.quantity = parseInt(this.host.getAttribute('value')) || 1;
+        this.hasIncrementSlot = !!this.host.querySelector('[slot="increment-button"]');
+        this.hasDecrementSlot = !!this.host.querySelector('[slot="decrement-button"]');
+    }
+    componentDidLoad() {
+        this.didLoaded = true;
+        this.textInput.addEventListener('input', (event) => salla.helpers.inputDigitsOnly(event.target));
+    }
+    getInputAttributes() {
+        for (let i = 0; i < this.host.attributes.length; i++) {
+            if (!['id', 'value', 'min', 'class'].includes(this.host.attributes[i].name)) {
+                this.hostAttributes[this.host.attributes[i].name] = this.host.attributes[i].value;
+            }
+        }
+        return this.hostAttributes;
+    }
+    /**
+     * decrease quantity by one.
+     * @return HTMLSallaQuantityInputElement
+     */
+    async decrease() {
+        return this.setValue(this.quantity - 1);
+    }
+    /**
+     * increase quantity by one.
+     * @return HTMLSallaQuantityInputElement
+     */
+    async increase() {
+        return this.setValue(Number(this.quantity) + 1);
+    }
+    /**
+     * set quantity by one.
+     * @return HTMLSallaQuantityInputElement
+     */
+    async setValue(value, fireChangeEvent = true) {
+        this.fireChangeEvent = fireChangeEvent;
+        let maxQuantity = parseInt(this.host.getAttribute('max'));
+        if (maxQuantity && value > maxQuantity) {
+            value = maxQuantity;
+        }
+        if (value <= 1) {
+            value = 1;
+        }
+        this.quantity = value;
+        return this.host;
+    }
+    render() {
+        return (h(Host, { key: '5627ef48310739dc0a112c9c214f78bae9b71bca', class: "s-quantity-input" }, h("div", { key: '50040d9cd5bbf38d06d6a13f17a1b4d756f5285d', class: "s-quantity-input-container" }, h("button", { key: '334c465e2ac46c3b88e3f89ae3b0754dc3741f69', onClick: () => this.increase(), class: "s-quantity-input-increase-button s-quantity-input-button", type: "button" }, !this.hasIncrementSlot ? h("span", { innerHTML: Add }) : '', h("slot", { key: '9f41e975e7c47f4cbc3e97dd3f8591b633d9da29', name: "increment-button" })), h("input", { key: '6f5bfdeb1804cf98a13f12b966e5fa6582e39557', class: "s-quantity-input-input", ...this.getInputAttributes(), ref: (el) => this.textInput = el, onInput: (event) => this.setValue(event.target.value), min: "1", value: this.quantity }), h("button", { key: '583f5edb96bc5a368851eadb5940d79b7afed3be', class: "s-quantity-input-decrease-button s-quantity-input-button", onClick: () => this.decrease(), type: "button" }, !this.hasDecrementSlot ? h("span", { innerHTML: Minus }) : '', h("slot", { key: '8726d4d616dd6f4fd1348312d3a9c24bf9268146', name: "decrement-button" })))));
+    }
+    static get is() { return "salla-quantity-input"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-quantity-input.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-quantity-input.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "cartItemId": {
+                "type": "any",
+                "attribute": "cart-item-id",
+                "mutable": false,
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Cart Item Id"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
+            }
+        };
+    }
+    static get states() {
+        return {
+            "quantity": {},
+            "fireChangeEvent": {}
+        };
+    }
+    static get methods() {
+        return {
+            "decrease": {
+                "complexType": {
+                    "signature": "() => Promise<HTMLElement>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        },
+                        "HTMLElement": {
+                            "location": "global",
+                            "id": "global::HTMLElement"
+                        }
+                    },
+                    "return": "Promise<HTMLElement>"
+                },
+                "docs": {
+                    "text": "decrease quantity by one.",
+                    "tags": [{
+                            "name": "return",
+                            "text": "HTMLSallaQuantityInputElement"
+                        }]
+                }
+            },
+            "increase": {
+                "complexType": {
+                    "signature": "() => Promise<HTMLElement>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        },
+                        "HTMLElement": {
+                            "location": "global",
+                            "id": "global::HTMLElement"
+                        }
+                    },
+                    "return": "Promise<HTMLElement>"
+                },
+                "docs": {
+                    "text": "increase quantity by one.",
+                    "tags": [{
+                            "name": "return",
+                            "text": "HTMLSallaQuantityInputElement"
+                        }]
+                }
+            },
+            "setValue": {
+                "complexType": {
+                    "signature": "(value: any, fireChangeEvent?: boolean) => Promise<HTMLElement>",
+                    "parameters": [{
+                            "name": "value",
+                            "type": "any",
+                            "docs": ""
+                        }, {
+                            "name": "fireChangeEvent",
+                            "type": "boolean",
+                            "docs": ""
+                        }],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        },
+                        "HTMLElement": {
+                            "location": "global",
+                            "id": "global::HTMLElement"
+                        }
+                    },
+                    "return": "Promise<HTMLElement>"
+                },
+                "docs": {
+                    "text": "set quantity by one.",
+                    "tags": [{
+                            "name": "return",
+                            "text": "HTMLSallaQuantityInputElement"
+                        }]
+                }
+            }
+        };
+    }
+    static get elementRef() { return "host"; }
+    static get watchers() {
+        return [{
+                "propName": "quantity",
+                "methodName": "watchPropHandler"
+            }];
+    }
+}

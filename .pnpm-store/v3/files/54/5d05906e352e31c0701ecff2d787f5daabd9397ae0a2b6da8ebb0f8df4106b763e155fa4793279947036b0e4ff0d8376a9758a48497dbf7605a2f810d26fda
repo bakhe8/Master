@@ -1,0 +1,35 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
+
+const sallaNotificationsCss = "";
+
+const SallaNotificationItem = /*@__PURE__*/ proxyCustomElement(class SallaNotificationItem extends HTMLElement {
+    constructor() {
+        super();
+        this.__registerHost();
+    }
+    render() {
+        return h("a", { key: '17a1e41f0b06f3b2f2f89dc521e6785f1aa74f61', href: this.notification.url, class: { "s-notifications-item": true, "s-notifications-item-shadow": true, "s-notifications-item-read": !this.notification.is_new } }, h("span", { key: '56fee4c18930369fba2790339d24581e8ea87ba8', class: "s-notifications-item-icon" }, h("i", { key: 'e95df8bdab11a7cab57d5c42895cdee902331d46', class: { 's-notifications-item-icon sicon-bell-ring': true, 's-notifications-item-icon-new': this.notification.is_new } })), h("div", { key: 'eaae0f57fddb3559c705acd04691b3446da0fb3c', class: "s-notifications-item-content" }, h("div", { key: '81ea45dd948c4afe6886b6aad935449dfc82a1a3', class: "s-notifications-item-content-leading" }, h("h4", { key: '6fb3da2e43bc676aa69dea061863ea5af1bf5eb4' }, this.notification.title), h("p", { key: '3b7f3273949e70a623fd95b5539accfb0b7e4cae' }, this.notification.sub_title)), h("span", { key: 'f629e3c8429d9636f23432dcbf918dab52e71941', class: "s-notifications-item-content-trailing" }, h("i", { key: 'f2822b50bd09e84c7b06c25403b2189fd7717520', class: "sicon-time s-notifications-item-content-trailing-icon" }), h("span", { key: 'df8fbc5dde967ccf0993dba938d8005d053afcef' }, this.notification.date))));
+    }
+    static get style() { return sallaNotificationsCss; }
+}, [0, "salla-notification-item", {
+        "notification": [16]
+    }]);
+function defineCustomElement() {
+    if (typeof customElements === "undefined") {
+        return;
+    }
+    const components = ["salla-notification-item"];
+    components.forEach(tagName => { switch (tagName) {
+        case "salla-notification-item":
+            if (!customElements.get(tagName)) {
+                customElements.define(tagName, SallaNotificationItem);
+            }
+            break;
+    } });
+}
+defineCustomElement();
+
+export { SallaNotificationItem as S, defineCustomElement as d };

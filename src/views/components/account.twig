@@ -1,0 +1,43 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-16">
+        <h1 class="text-2xl font-bold mb-2">{{ trans('pages.account.title') }}</h1>
+        <p class="text-gray-500 mb-8">{{ trans('pages.account.welcome', {'name': customer.first_name}) }}</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {# Sidebar #}
+            <aside class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <nav class="flex flex-col space-y-1">
+                        <a href="{{ url('customer.profile') }}" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-100 {{ page.slug == 'customer.profile' ? 'bg-gray-100 font-bold' : '' }}">
+                            <i class="sicon-user rtl:ml-3 ltr:mr-3"></i>
+                            <span>{{ trans('pages.account.profile') }}</span>
+                        </a>
+                        <a href="{{ url('customer.orders') }}" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-100 {{ page.slug == 'customer.orders' ? 'bg-gray-100 font-bold' : '' }}">
+                            <i class="sicon-package rtl:ml-3 ltr:mr-3"></i>
+                            <span>{{ trans('pages.account.orders') }}</span>
+                        </a>
+                        <a href="{{ url('customer.addresses') }}" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-100 {{ page.slug == 'customer.addresses' ? 'bg-gray-100 font-bold' : '' }}">
+                            <i class="sicon-location-pin rtl:ml-3 ltr:mr-3"></i>
+                            <span>{{ trans('pages.account.addresses') }}</span>
+                        </a>
+                        <a href="{{ url('wishlist') }}" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-100 {{ page.slug == 'wishlist' ? 'bg-gray-100 font-bold' : '' }}">
+                            <i class="sicon-heart rtl:ml-3 ltr:mr-3"></i>
+                            <span>{{ trans('pages.account.wishlist') }}</span>
+                        </a>
+                        <salla-button onclick="salla.customer.logout()" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-100 text-red-500 w-full justify-start">
+                            <i class="sicon-logout rtl:ml-3 ltr:mr-3"></i>
+                            <span>{{ trans('pages.account.logout') }}</span>
+                        </salla-button>
+                    </nav>
+                </div>
+            </aside>
+
+            {# Account Content #}
+            <main class="lg:col-span-3">
+                {% block account_content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+{% endblock %}

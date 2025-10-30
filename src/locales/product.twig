@@ -1,0 +1,78 @@
+{% extends "layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {# Product Gallery #}
+            <div>
+                <salla-product-gallery
+                    product-id="{{ product.id }}"
+                    product-name="{{ product.name }}"
+                    product-url="{{ product.url }}"
+                    main-image="{{ product.image.url }}"
+                    images="{{ product.images|json_encode }}"
+                    has-video="{{ product.has_video_2d }}"
+                    video-url="{{ product.video_url }}"
+                    video-thumb="{{ product.video_thumb_url }}">
+                </salla-product-gallery>
+            </div>
+
+            {# Product Details #}
+            <div>
+                <salla-product-options product-id="{{ product.id }}">
+                    <h1 class="text-3xl font-bold mb-2">{{ product.name }}</h1>
+                    <div class="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                        <span>{{ trans('pages.product.sku') }}: {{ product.sku }}</span>
+                        {% if product.is_available %}
+                            <span class="text-green-500">{{ trans('pages.product.in_stock') }}</span>
+                        {% else %}
+                            <span class="text-red-500">{{ trans('pages.product.out_of_stock') }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-6">
+                        <salla-rating rate="{{ product.rating.stars }}" size="small"></salla-rating>
+                        <span class="text-sm text-gray-600">({{ product.rating.count }} {{ trans('pages.product.reviews') }})</span>
+                    </div>
+
+                    <div class="mb-6">
+                        <salla-price product-id="{{ product.id }}"></salla-price>
+                    </div>
+
+                    <div class="mb-6" id="product-options-wrapper">
+                        {# Product options will be injected here by salla-product-options component #}
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-6">
+                        <salla-quantity-input name="quantity" product-id="{{ product.id }}"></salla-quantity-input>
+                        <div class="flex-1">
+                            <salla-add-to-cart-button product-id="{{ product.id }}" width="wide">
+                                {{ trans('pages.product.add_to_cart') }}
+                            </salla-add-to-cart-button>
+                        </div>
+                        <salla-wishlist-button product-id="{{ product.id }}"></salla-wishlist-button>
+                    </div>
+                </salla-product-options>
+
+                {% if product.description %}
+                    <div class="prose max-w-none mt-8 pt-8 border-t">
+                        <h2>{{ trans('pages.product.description') }}</h2>
+                        {{ product.description|raw }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {# Related Products #}
+        {% if product.related_products|length %}
+            <div class="mt-16 pt-16 border-t">
+                <h2 class="text-2xl font-bold mb-6">{{ trans('pages.product.related_products') }}</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    {% for related_product in product.related_products %}
+                        {% include 'components/product-grid.twig' with {'product': related_product} %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <div class="container py-8 md:py-12">
+        {# Breadcrumbs #}
+        <salla-breadcrumb></salla-breadcrumb>
+
+        {# Category Banner Component #}
+        {% include "views/components/category-banner.twig" with { category: category } %}
+
+        {# Category Filters and Sorting (Placeholder for future implementation) #}
+        <div class="flex items-center justify-between mb-6">
+            {# You can add filter/sort components here, e.g., salla-filters, salla-sort-options #}
+            <div class="text-sm text-gray-600 dark:text-gray-300">
+                {% if products.count > 0 %}
+                    {{ trans('pages.categories.results_count', {'count': products.count}) }}
+                {% endif %}
+            </div>
+            {# Example: <salla-sort-options></salla-sort-options> #}
+        </div>
+
+        {# Product Grid #}
+        {% if products.data|length > 0 %}
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+                {% for product in products.data %}
+                    {% include "views/components/product-grid.twig" with { product: product } %}
+                {% endfor %}
+            </div>
+
+            {# Pagination #}
+            {% if products.pagination.total_pages > 1 %}
+                <div class="mt-10 flex justify-center">
+                    <salla-pagination
+                        current-page="{{ products.pagination.current_page }}"
+                        total-pages="{{ products.pagination.total_pages }}"
+                        url-template="{{ products.pagination.url_template }}"
+                    ></salla-pagination>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="text-center py-10">
+                <p class="text-lg text-gray-600 dark:text-gray-300">{{ trans('pages.categories.no_products') }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

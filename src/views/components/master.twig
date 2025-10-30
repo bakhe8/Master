@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ direction }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ salla.head() }}
+</head>
+<body class="antialiased">
+    {% include 'views/components/loader.twig' %}
+    
+    {% include 'views/components/promo-bar.twig' %}
+
+    {% block header %}{% include 'views/components/header.twig' %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {{ salla.footer() }}
+    
+    {% include 'views/components/footer.twig' %}
+
+    {% include 'views/components/mobile-nav.twig' %}
+
+    {% include 'views/components/scroll-to-top.twig' %}
+
+    {% include 'views/components/cookie-consent.twig' %}
+</body>
+</html>

@@ -1,0 +1,120 @@
+/*!
+ * Crafted with ❤ by Salla
+ */
+import { h, Host } from "@stencil/core";
+import Inbox from "../../assets/svg/inbox.svg";
+/**
+ * @slot title - The primary content of the placeholder.
+ * @slot description - Additional content displayed below the title.
+ */
+export class SallaPlaceholder {
+    constructor() {
+        this.translationLoaded = false;
+        /**
+         * Custom icon to display, defaults to [`Inbox`], can be any valid svg icon or inline element with font icon
+         */
+        this.icon = Inbox;
+        /**
+         * Defines the alignment of contents. Defaults to [`left`]
+         */
+        this.alignment = 'left';
+        /**
+          * The size of the icon. Defaults to [`md`] = 45px for font icon & width/height: 3.5rem for svg icon
+          */
+        this.iconSize = 'md';
+        salla.lang.onLoaded(() => {
+            this.translationLoaded = true;
+        });
+    }
+    alignmentClass() {
+        return {
+            's-placeholder-wrapper': true,
+            's-placeholder-align-left': this.alignment == 'left',
+            's-placeholder-align-center': this.alignment == 'center',
+            's-placeholder-align-right': this.alignment == 'right',
+        };
+    }
+    render() {
+        return (h(Host, { key: '9bf5c9b70ee7dddc65bdb550f98681aa6eb4a2b1', class: this.alignmentClass() }, h("div", { key: '05bf79dd66fb30d76ffe05ea50b66d1bab976bb0', class: `s-placeholder-icon s-placeholder-icon-${this.iconSize}`, innerHTML: this.icon }), h("div", { key: '1373cfaad7e993e6cc888047346348083ee8bf7e', class: "s-placeholder-title" }, h("slot", { key: '5a6d70c7fee74334cf46143511bf2465e32025be', name: 'title' }, h("span", { key: '5b531362a3dea0a8a59960a28925c03bdfc64f82' }, salla.lang.get('common.elements.no_options')))), h("div", { key: 'd9d0c28b47f7c2972817630a9011e17116fa66c8', class: "s-placeholder-description" }, h("slot", { key: '0b67052476e584464107d56b4c8f263cfebaac87', name: 'description' }, h("span", { key: '61b16c16799ce96a53eca32936c8d49b2e81ff03' }, salla.lang.get('common.errors.empty_results'))))));
+    }
+    static get is() { return "salla-placeholder"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["salla-placeholder.scss"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["salla-placeholder.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "icon": {
+                "type": "string",
+                "attribute": "icon",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Custom icon to display, defaults to [`Inbox`], can be any valid svg icon or inline element with font icon"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "Inbox"
+            },
+            "alignment": {
+                "type": "string",
+                "attribute": "alignment",
+                "mutable": false,
+                "complexType": {
+                    "original": "'left' | 'center' | 'right'",
+                    "resolved": "\"center\" | \"left\" | \"right\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Defines the alignment of contents. Defaults to [`left`]"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'left'"
+            },
+            "iconSize": {
+                "type": "string",
+                "attribute": "icon-size",
+                "mutable": false,
+                "complexType": {
+                    "original": "'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'",
+                    "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\" | \"xxxl\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "The size of the icon. Defaults to [`md`] = 45px for font icon & width/height: 3.5rem for svg icon"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'md'"
+            }
+        };
+    }
+    static get states() {
+        return {
+            "translationLoaded": {}
+        };
+    }
+}

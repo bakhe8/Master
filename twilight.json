@@ -1,6 +1,6 @@
 {
     "name": {
-        "ar": "بيتو",
+        "ar": "بيتو", 
         "en": "Beto Theme"
     },
     "repository": "https://github.com/bakhe8/Master",
@@ -26,20 +26,13 @@
     ],
     "settings": [
         {
-            "id": "squar_photo_bg_image_size",
+            "id": "square_photo_bg_image_size",
             "type": "items",
             "format": "dropdown-list",
             "label": "طريقة عرض الصور في قسم قائمة عناصر ",
             "description": null,
             "labelHTML": null,
             "icon": "sicon-list",
-            "selected": [
-                {
-                    "label": "اظهار الصورة كاملةً في المنتصف (Contain)",
-                    "value": "contain",
-                    "key": "f4adec13-6e4c-654b-b978-b2807935ced9"
-                }
-            ],
             "options": [
                 {
                     "label": "تغطية الصورة كامل المساحة مع المحافظة على أبعاد الصورة (Cover)",
@@ -53,7 +46,8 @@
                 }
             ],
             "source": "Manual",
-            "required": true
+            "required": true,
+            "value": "contain"
         },
         {
             "type": "boolean",
@@ -63,8 +57,7 @@
             "id": "vertical_fixed_products",
             "format": "switch",
             "required": false,
-            "value": false,
-            "selected": false
+            "value": false
         },
         {
             "type": "boolean",
@@ -92,8 +85,7 @@
             "icon": "sicon-toggle-off",
             "format": "switch",
             "required": false,
-            "value": true,
-            "selected": true
+            "value": true
         },
         {
             "type": "boolean",
@@ -103,8 +95,7 @@
             "id": "topnav_is_dark",
             "format": "switch",
             "required": false,
-            "value": true,
-            "selected": false
+            "value": true
         },
         {
             "type": "boolean",
@@ -114,8 +105,7 @@
             "id": "important_links",
             "format": "switch",
             "required": false,
-            "value": true,
-            "selected": true
+            "value": true
         },
         {
             "type": "static",
@@ -137,8 +127,7 @@
             "id": "footer_is_dark",
             "format": "switch",
             "required": false,
-            "value": true,
-            "selected": false
+            "value": true
         },
         {
             "type": "static",
@@ -160,8 +149,7 @@
             "id": "sticky_add_to_cart",
             "format": "switch",
             "required": false,
-            "value": true,
-            "selected": true
+            "value": true
         },
         {
             "type": "boolean",
@@ -171,8 +159,7 @@
             "id": "show_tags",
             "format": "switch",
             "required": false,
-            "value": true,
-            "selected": true
+            "value": true
         },
         {
             "id": "slider_background_size",
@@ -182,13 +169,6 @@
             "description": null,
             "labelHTML": null,
             "icon": "sicon-list",
-            "selected": [
-                {
-                    "label": "اظهار الصورة كاملةً في المنتصف (Contain)",
-                    "value": "contain",
-                    "key": "f4adec13-6e4c-433b-b141-b2807935ced9"
-                }
-            ],
             "options": [
                 {
                     "label": "تغطية الصورة كامل المساحة مع المحافظة على أبعاد الصورة (Cover)",
@@ -202,18 +182,99 @@
                 }
             ],
             "source": "Manual",
-            "required": true
+            "required": true,
+            "value": "contain"
         },
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تكبير الصور في سليدر صور المنتج",
-            "description": "هذه الخاصية تمكنك من تكبير الصورة لتسهل رؤية المزيد من التفاصيل بها",
-            "id": "imageZoom",
+            "description": "هذه الخاصية تمكنك من تكبير الصورة لتسهل رؤية المزيد من التفاصيل بها", 
+            "id": "image_zoom_enabled",
             "format": "switch",
             "required": false,
-            "value": false,
-            "selected": false
+            "value": false
+        }
+        ,
+        {
+            "type": "static",
+            "id": "static-line-enhancements",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "static-label-enhancements",
+            "value": "التحسينات الاختيارية",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "id": "loader_enabled",
+            "label": "تفعيل مؤشر تحميل الصفحة (preloader)",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "dark_mode_enabled",
+            "label": "تفعيل زر الوضع الليلي/النهاري",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "scroll_to_top_enabled",
+            "label": "تفعيل زر العودة للأعلى",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "promo_bar_enabled",
+            "label": "تفعيل شريط الإعلانات العلوي",
+            "format": "switch"
+        },
+        {
+            "type": "string",
+            "id": "promo_bar_text",
+            "label": "نص شريط الإعلانات",
+            "multilanguage": true,
+            "format": "text",
+            "placeholder": "مثال: شحن مجاني للطلبات فوق 300 ريال",
+            "conditions": [{ "id": "promo_bar_enabled", "operation": "=", "value": true }]
+        },
+        {
+            "type": "items",
+            "id": "promo_bar_link",
+            "label": "رابط شريط الإعلانات (اختياري)",
+            "format": "variable-list",
+            "source": "custom",
+            "sources": [
+                { "label": "منتج", "key": "products", "value": "products" },
+                { "label": "تصنيف", "key": "categories", "value": "categories" },
+                { "label": "التخفيضات", "key": "offers_link", "value": "offers_link" },
+                { "label": "رابط خارجي", "key": "custom", "value": "custom" }
+            ],
+            "conditions": [{ "id": "promo_bar_enabled", "operation": "=", "value": true }]
+        },
+        {
+            "type": "boolean",
+            "id": "cookie_consent_enabled",
+            "label": "تفعيل شريط الموافقة على ملفات تعريف الارتباط (GDPR)",
+            "format": "switch"
+        },
+        {
+            "type": "items",
+            "id": "cookie_consent_policy_page",
+            "label": "صفحة سياسة الخصوصية",
+            "format": "variable-list",
+            "source": "custom",
+            "sources": [
+                { "label": "صفحة تعريفية", "key": "pages", "value": "pages" },
+                { "label": "رابط خارجي", "key": "custom", "value": "custom" }
+            ],
+            "conditions": [{ "id": "cookie_consent_enabled", "operation": "=", "value": true }]
         }
     ],
     "components": [
@@ -228,14 +289,8 @@
                 {
                     "type": "static",
                     "format": "description",
-                    "id": "static-desc",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
-                },
-                {
-                  "type": "static",
-                  "format": "description",
-                  "id": "enhance-slider-note",
-                  "value": "<div style='background-color: #ddedff;color: #0a5a90;padding: 16px 20px;font-size: 14px;border-radius: 4px; margin: 0 0 30px;'>هذا العنصر غير مناسب لعرض البنرات، يمكنك استخدام عنصر <strong>صور متحركة</strong> بدلاً منه لتظهر صورة البنر بشكل كامل</div>"
+                    "id": "enhance-slider-note",
+                    "value": "هذا العنصر غير مناسب لعرض البنرات، يمكنك استخدام عنصر **صور متحركة** بدلاً منه لتظهر صورة البنر بشكل كامل."
                 },
                 {
                     "id": "slides",
@@ -312,32 +367,6 @@
             "is_default": true,
             "fields": [
                 {
-                    "type": "static",
-                    "format": "description",
-                    "id": "with-bg",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>",
-                    "conditions": [
-                        {
-                            "id": "merge_with_top_component",
-                            "operation": "=",
-                            "value": true
-                        }
-                    ]
-                },
-                {
-                    "type": "static",
-                    "format": "description",
-                    "id": "without-bg",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>",
-                    "conditions": [
-                        {
-                            "id": "merge_with_top_component",
-                            "operation": "=",
-                            "value": false
-                        }
-                    ]
-                },
-                {
                     "type": "string",
                     "icon": "sicon-format-text-alt",
                     "label": "العنوان",
@@ -359,8 +388,7 @@
                     "id": "merge_with_top_component",
                     "format": "switch",
                     "required": false,
-                    "value": false,
-                    "selected": false
+                    "value": false
                 },
                 {
                     "type": "static",
@@ -376,8 +404,7 @@
                     "id": "show_controls",
                     "format": "switch",
                     "required": false,
-                    "value": true,
-                    "selected": true
+                    "value": true
                 },
                 {
                     "type": "boolean",
@@ -387,8 +414,7 @@
                     "id": "show_cats",
                     "format": "switch",
                     "required": false,
-                    "value": false,
-                    "selected": false
+                    "value": false
                 },
                 {
                     "id": "categories",
@@ -564,12 +590,6 @@
             "image": "https://cdn.salla.sa/mQgZlG/3hhreht06MIPFWepyuz42rg3bHqGZIYmDVs1PjYc.png",
             "fields": [
                 {
-                    "type": "static",
-                    "format": "description",
-                    "id": "with-bg",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
-                },
-                {
                     "type": "string",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/D7bG3pgSit43TheOejBOZV7LIfG1y1Cj0hWLmgIh.jpg",
@@ -704,12 +724,6 @@
             "image": "https://cdn.salla.sa/mQgZlG/VSk26LArCczWj085xH8jxuusMiKzrcE1wsVC6pLm.png",
             "is_default": true,
             "fields": [
-                {
-                    "type": "static",
-                    "format": "description",
-                    "id": "with-bg",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
-                },
                 {
                     "id": "banners",
                     "type": "collection",
@@ -872,12 +886,6 @@
             "image": "https://cdn.salla.sa/mQgZlG/kvFhVeuUyjK4nHUovBQBZ632Hb6gKV2BXZwid40e.png",
             "fields": [
                 {
-                    "type": "static",
-                    "format": "description",
-                    "id": "with-bg",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
-                },
-                {
                     "type": "string",
                     "icon": "sicon-format-text-alt",
                     "label": "العنوان",
@@ -918,12 +926,6 @@
             "image": "https://cdn.salla.sa/mQgZlG/JMJiEx1KVn7mzxo5FdtsVsAmpWPM8UJW0i0B93c0.png",
             "is_default": true,
             "fields": [
-                {
-                    "type": "static",
-                    "format": "description",
-                    "id": "static-desc",
-                    "value": "<div style='padding:20px;text-align:center'>Preview available inside the Beto Theme editor.</div>"
-                },
                 {
                     "id": "items",
                     "key": "0473eb46-c7f5-44c5-bd6f-b1fe716a5e64",
@@ -1024,10 +1026,53 @@
                 }
             ]
         }
+        ,
+        {
+            "key": "c8a9f0b1-e2d3-4c5b-6a7d-8e9f0a1b2c3d",
+            "title": "مقالات مميزة",
+            "icon": "sicon-file-text",
+            "path": "home.featured-blog",
+            "image": "https://cdn.salla.sa/mQgZlG/JMJiEx1KVn7mzxo5FdtsVsAmpWPM8UJW0i0B93c0.png",
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "العنوان",
+                    "multilanguage": true,
+                    "id": "title",
+                    "value": "أحدث مقالاتنا"
+                },
+                {
+                    "type": "string",
+                    "icon": "sicon-typography",
+                    "label": "الوصف (اختياري)",
+                    "multilanguage": true,
+                    "id": "description",
+                    "format": "textarea"
+                },
+                {
+                    "type": "items",
+                    "icon": "sicon-keyboard_arrow_down",
+                    "label": "اختر المقالات (اختياري)",
+                    "id": "posts",
+                    "format": "dropdown-list",
+                    "description": "إذا لم تختر أي مقالات، سيتم عرض أحدث 3 مقالات تلقائياً.",
+                    "multichoice": true,
+                    "source": "blog_articles"
+                }
+            ]
+        },
+        {
+            "key": "component-store-features",
+            "title": "مزايا المتجر",
+            "icon": "sicon-award-ribbon",
+            "path": "home.store-features",
+            "image": "https://cdn.salla.sa/mQgZlG/kvFhVeuUyjK4nHUovBQBZ632Hb6gKV2BXZwid40e.png"
+        }
     ],
     "support_url": "https://salla.com/",
     "description": {
         "ar": "مجموعة كبيرة من المزايا لدعم تجارتك وتقديم تجربة تسوق مثيرة لعملائك",
-        "en": "A wide range of features to support your business and provide an exciting shopping experience for your customers"
+        "en": "A wide range of features to support your business and provide an exciting shopping experience for your customers."
     }
 }

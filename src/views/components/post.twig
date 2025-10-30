@@ -1,0 +1,23 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    <article class="container py-8 md:py-16">
+        <div class="max-w-4xl mx-auto">
+            <salla-breadcrumb></salla-breadcrumb>
+
+            <h1 class="text-3xl md:text-4xl font-bold my-4">{{ post.title }}</h1>
+
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                <span>{{ trans('pages.post.by') }} <b>{{ post.author_name }}</b></span>
+                <span>|</span>
+                <span>{{ trans('pages.post.published_on') }} {{ post.published_at|date('F d, Y') }}</span>
+            </div>
+
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.image.alt }}" class="w-full rounded-lg shadow-md mb-8">
+            {% endif %}
+
+            <div class="prose max-w-none lg:prose-lg">{{ post.content|raw }}</div>
+        </div>
+    </article>
+{% endblock %}

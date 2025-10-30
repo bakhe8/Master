@@ -1,0 +1,57 @@
+{% extends "views/layouts/master.twig" %}
+
+{% block content %}
+    {% set posts = salla.blog.get() %}
+
+    <div class="container py-8 md:py-12">
+        {# Breadcrumbs #}
+        <salla-breadcrumb></salla-breadcrumb>
+
+        {# Page Header #}
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">{{ trans('pages.blog.title') }}</h1>
+        </div>
+
+        {# Posts Grid #}
+        {% if posts.data|length %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for post in posts.data %}
+                    <div class="post-card group bg-white dark:bg-dark border border-light dark:border-darker rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-lg">
+                        <a href="{{ post.url }}" class="block overflow-hidden">
+                            <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </a>
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                                {{ trans('pages.post.published_on') }} {{ post.published_at|date('F d, Y') }}
+                            </p>
+                            <h2 class="text-xl font-bold mb-3 truncate">
+                                <a href="{{ post.url }}" class="hover:text-primary dark:text-gray-200 dark:hover:text-primary">{{ post.title }}</a>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed h-20 overflow-hidden mb-4">{{ post.excerpt }}</p>
+                            <a href="{{ post.url }}" class="font-bold text-primary hover:underline">
+                                {{ trans('pages.blog.read_more') }}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {# Pagination #}
+            {% if posts.pagination.total_pages > 1 %}
+                <div class="mt-10 flex justify-center">
+                    <salla-pagination
+                        current-page="{{ posts.pagination.current_page }}"
+                        total-pages="{{ posts.pagination.total_pages }}"
+                        url-template="{{ posts.pagination.url_template }}"
+                    ></salla-pagination>
+                </div>
+            {% endif %}
+        {% else %}
+            {# No Posts State #}
+            <div class="text-center py-20">
+                <h2 class="text-2xl font-bold mb-2">{{ trans('pages.blog.no_posts') }}</h2>
+                <p class="text-gray-600 dark:text-gray-400">{{ trans('pages.blog.no_posts_description') }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
