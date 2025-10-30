@@ -1,28 +1,45 @@
 ﻿{# NeedsBoxes All products with simple UI; renders latest products #}
-<section id="all-products" class="py-12 bg-white/60 dark:bg-black/10">
+<section id="all-products" class="py-12 bg-white/70 dark:bg-gray-900/40">
   <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-3 mb-5">
-      <div class="flex items-center gap-2 flex-wrap justify-center">
-        <button class="product-filter-btn px-3 py-1.5 rounded-full active-filter" data-nb-filter="all">الكل</button>
-        <button class="product-filter-btn px-3 py-1.5 rounded-full" data-nb-filter="audio">صوتيات</button>
-        <button class="product-filter-btn px-3 py-1.5 rounded-full" data-nb-filter="lighting">إضاءة</button>
-        <button class="product-filter-btn px-3 py-1.5 rounded-full" data-nb-filter="charging">شحن</button>
-        <button class="product-filter-btn px-3 py-1.5 rounded-full" data-nb-filter="accessory">اكسسوارات</button>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+      <div class="text-center md:text-right space-y-1">
+        <h2 class="text-2xl font-extrabold text-[var(--primary-dark)] dark:text-white">
+          {{ trans('common.needsboxes.all_products_title')|default('كل صناديق Needs Boxes') }}
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          {{ trans('common.needsboxes.all_products_subtitle')|default('استعرض أحدث الصناديق المجهزة وفلتر حسب نوع الاستخدام أو الميزانية المفضلة لديك.') }}
+        </p>
       </div>
       <div class="flex flex-col sm:flex-row items-center gap-3">
-        <select id="nb-sort" class="px-3 py-2 rounded-xl border dark:border-white/10 dark:bg-gray-700 w-full sm:w-auto" aria-label="فرز المنتجات">
-          <option value="pop">الأكثر رواجًا</option>
-          <option value="priceAsc">السعر: من الأقل للأعلى</option>
-          <option value="priceDesc">السعر: من الأعلى للأقل</option>
-          <option value="new">الأحدث</option>
+        <select id="nb-sort" class="px-3 py-2 rounded-xl border border-[var(--accent-coral)]/40 dark:border-white/10 dark:bg-gray-800 w-full sm:w-auto text-sm" aria-label="{{ trans('common.needsboxes.all_products_sort')|default('فرز الصناديق') }}">
+          <option value="pop">{{ trans('common.needsboxes.sort_popular')|default('الأكثر طلبًا') }}</option>
+          <option value="priceAsc">{{ trans('common.needsboxes.sort_price_asc')|default('السعر: من الأقل للأعلى') }}</option>
+          <option value="priceDesc">{{ trans('common.needsboxes.sort_price_desc')|default('السعر: من الأعلى للأقل') }}</option>
+          <option value="new">{{ trans('common.needsboxes.sort_new')|default('أحدث الإصدارات') }}</option>
         </select>
         <div class="flex items-center gap-2">
-          <input id="nb-price-min" type="number" min="0" placeholder="أقل سعر" class="px-3 py-2 rounded-xl border dark:border-white/10 dark:bg-gray-700 w-28" aria-label="أقل سعر">
-          <input id="nb-price-max" type="number" min="0" placeholder="أعلى سعر" class="px-3 py-2 rounded-xl border dark:border-white/10 dark:bg-gray-700 w-28" aria-label="أعلى سعر">
+          <input id="nb-price-min" type="number" min="0" placeholder="{{ trans('common.needsboxes.price_min')|default('أقل سعر') }}" class="px-3 py-2 rounded-xl border border-[var(--accent-coral)]/40 dark:border-white/10 dark:bg-gray-800 w-28 text-sm" aria-label="{{ trans('common.needsboxes.price_min')|default('أقل سعر') }}">
+          <input id="nb-price-max" type="number" min="0" placeholder="{{ trans('common.needsboxes.price_max')|default('أعلى سعر') }}" class="px-3 py-2 rounded-xl border border-[var(--accent-coral)]/40 dark:border-white/10 dark:bg-gray-800 w-28 text-sm" aria-label="{{ trans('common.needsboxes.price_max')|default('أعلى سعر') }}">
         </div>
       </div>
+    </div>
+    <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+      <button class="product-filter-btn px-4 py-2 rounded-full active-filter" data-nb-filter="all">
+        {{ trans('common.needsboxes.filter_all')|default('كل الصناديق') }}
+      </button>
+      <button class="product-filter-btn px-4 py-2 rounded-full" data-nb-filter="workspace">
+        {{ trans('common.needsboxes.filter_workspace')|default('مساحات العمل') }}
+      </button>
+      <button class="product-filter-btn px-4 py-2 rounded-full" data-nb-filter="travel">
+        {{ trans('common.needsboxes.filter_travel')|default('السفر والتنقل') }}
+      </button>
+      <button class="product-filter-btn px-4 py-2 rounded-full" data-nb-filter="gaming">
+        {{ trans('common.needsboxes.filter_gaming')|default('الترفيه والألعاب') }}
+      </button>
+      <button class="product-filter-btn px-4 py-2 rounded-full" data-nb-filter="gifting">
+        {{ trans('common.needsboxes.filter_gifting')|default('هدايا جاهزة') }}
+      </button>
     </div>
     <salla-products-list source="latest" id="nb-products-list"></salla-products-list>
   </div>
 </section>
-

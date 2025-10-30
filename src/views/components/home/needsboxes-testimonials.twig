@@ -1,28 +1,48 @@
-﻿{# NeedsBoxes Testimonials (static example) #}
+﻿{# NeedsBoxes Testimonials (brand copy) #}
 <section id="testimonials" class="py-12">
   <div class="container mx-auto px-4">
-    <h2 class="text-2xl font-extrabold mb-6 salla-section-title text-center">آراء العملاء</h2>
+    <h2 class="text-2xl font-extrabold mb-4 salla-section-title text-center">
+      {{ trans('common.needsboxes.testimonials_title')|default('ماذا يقول عملاؤنا عن صناديق الاحتياجات؟') }}
+    </h2>
+    <p class="text-sm text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
+      {{ trans('common.needsboxes.testimonials_subtitle')|default('قصص حقيقية عن صناديق مصممة لتلائم الاحتياج اليومي وتصل جاهزة للعمل من اليوم الأول.') }}
+    </p>
     <div class="grid md:grid-cols-3 gap-4 mt-8">
-      <article class="p-5 rounded-2xl bg-white border dark:border-white/10 dark:bg-gray-800 shadow-soft hover:shadow-nb transition-all duration-300 hover:-translate-y-1">
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png" class="w-10 h-10 rounded-full" alt="Avatar"/>
-          <div><strong>عبدالله</strong><div class="text-amber-500 text-sm">★★★★★</div></div>
+      <article class="p-6 rounded-3xl bg-white border border-[var(--accent-coral)]/25 dark:border-white/10 dark:bg-gray-900/60 shadow-soft hover:-translate-y-1 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png" class="w-12 h-12 rounded-full" alt="{{ trans('common.needsboxes.testimonial_avatar_alt')|default('صورة عميل') }}"/>
+          <div>
+            <strong class="block text-[var(--primary-dark)] dark:text-white">عبدالله – الرياض</strong>
+            <div class="text-amber-400 text-sm">★★★★★</div>
+          </div>
         </div>
-        <p>منتجات أصلية وتغليف ممتاز. تجربة شراء رائعة.</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.testimonial_one')|default('صندوق المكتب وصل جاهز بكل ما أحتاجه، شاحن متعدد المداخل وسماعات احتياطية. وفر علي وقت البحث والتجميع.') }}
+        </p>
       </article>
-      <article class="p-5 rounded-2xl bg-white border dark:border-white/10 dark:bg-gray-800 shadow-soft hover:shadow-nb transition-all duration-300 hover:-translate-y-1">
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_female.png" class="w-10 h-10 rounded-full" alt="Avatar"/>
-          <div><strong>سارة</strong><div class="text-amber-500 text-sm">★★★★★</div></div>
+      <article class="p-6 rounded-3xl bg-white border border-[var(--accent-coral)]/25 dark:border-white/10 dark:bg-gray-900/60 shadow-soft hover:-translate-y-1 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_female.png" class="w-12 h-12 rounded-full" alt="{{ trans('common.needsboxes.testimonial_avatar_alt')|default('صورة عميل') }}"/>
+          <div>
+            <strong class="block text-[var(--primary-dark)] dark:text-white">سارة – جدة</strong>
+            <div class="text-amber-400 text-sm">★★★★★</div>
+          </div>
         </div>
-        <p>توصيل سريع وخدمة عملاء راقية.</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.testimonial_two')|default('أرسلته كهدية لصديقتي. التغليف رائع، وفيه بطاقة تعريف بكل منتج. أنصح به لأي شخص يحب المفاجآت التقنية.') }}
+        </p>
       </article>
-      <article class="p-5 rounded-2l bg-white border dark:border-white/10 dark:bg-gray-800 shadow-soft hover:shadow-nb transition-all duration-300 hover:-translate-y-1">
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png" class="w-10 h-10 rounded-full" alt="Avatar"/>
-          <div><strong>محمد</strong><div class="text-amber-500 text-sm">★★★★☆</div></div>
+      <article class="p-6 rounded-3xl bg-white border border-[var(--accent-coral)]/25 dark:border-white/10 dark:bg-gray-900/60 shadow-soft hover:-translate-y-1 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png" class="w-12 h-12 rounded-full" alt="{{ trans('common.needsboxes.testimonial_avatar_alt')|default('صورة عميل') }}"/>
+          <div>
+            <strong class="block text-[var(--primary-dark)] dark:text-white">محمد – الدمام</strong>
+            <div class="text-amber-400 text-sm">★★★★☆</div>
+          </div>
         </div>
-        <p>تنوع كبير في الإكسسوارات وأسعار منافسة.</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.testimonial_three')|default('أحببت تنوع الملحقات الذكية داخل صندوق السفر. خدمة الدعم ساعدتني أختار الإضافات المناسبة لرحلتي.') }}
+        </p>
       </article>
     </div>
   </div>

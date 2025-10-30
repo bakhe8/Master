@@ -1,15 +1,55 @@
 ﻿{# NeedsBoxes Contact #}
 <section id="contact" class="py-12">
   <div class="container mx-auto px-4">
-    <h2 class="text-2xl font-extrabold mb-6 salla-section-title text-center">تواصل معنا</h2>
+    <h2 class="text-2xl font-extrabold mb-3 salla-section-title text-center">
+      {{ trans('common.needsboxes.contact_title')|default('نرافقك لاختيار الصندوق الأنسب') }}
+    </h2>
+    <p class="text-sm text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
+      {{ trans('common.needsboxes.contact_subtitle')|default('تواصل معنا عبر أي قناة وسنساعدك في اختيار الملحقات، تخصيص الصندوق، أو متابعة الطلب الحالي.') }}
+    </p>
     <div class="grid md:grid-cols-2 gap-6 mt-8">
-      <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 border dark:border-white/10 shadow-soft space-y-3">
+      <div class="bg-white dark:bg-gray-900 rounded-3xl p-6 border border-[var(--accent-coral)]/25 dark:border-white/10 shadow-soft space-y-4">
+        <h3 class="font-semibold text-[var(--primary-dark)] dark:text-white text-lg">
+          {{ trans('common.needsboxes.contact_form_title')|default('نموذج التواصل السريع') }}
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          {{ trans('common.needsboxes.contact_form_desc')|default('أرسل لنا رسالة وسيعاودك فريق Needs Boxes خلال ساعات العمل الرسمية.') }}
+        </p>
         <salla-contacts></salla-contacts>
       </div>
-      <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 border dark:border-white/10 shadow-soft space-y-3">
-        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[var(--accent-coral)]"></i> {{ store.contacts.mobile ?? store.contacts.phone }}</p>
-        <p class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-green-500"></i> واتساب متاح</p>
-        <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[var(--accent-coral)]"></i> {{ store.address ?? 'المملكة العربية السعودية' }}</p>
+      <div class="bg-white dark:bg-gray-900 rounded-3xl p-6 border border-[var(--accent-coral)]/25 dark:border-white/10 shadow-soft space-y-4">
+        <h3 class="font-semibold text-[var(--primary-dark)] dark:text-white text-lg">
+          {{ trans('common.needsboxes.contact_channels_title')|default('قنوات الدعم المباشر') }}
+        </h3>
+        <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-200">
+          <li class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[var(--accent-coral)]/15 text-[var(--accent-orange-dark)] flex items-center justify-center">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <div>
+              <p class="font-medium">{{ trans('common.needsboxes.contact_phone_label')|default('هاتف الدعم') }}</p>
+              <p>{{ store.contacts.mobile ?? store.contacts.phone ?? trans('common.needsboxes.contact_phone_placeholder')|default('يرجى تحديث رقم الهاتف من لوحة التحكم') }}</p>
+            </div>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[#25D366]/15 text-[#25D366] flex items-center justify-center">
+              <i class="fa-brands fa-whatsapp"></i>
+            </span>
+            <div>
+              <p class="font-medium">{{ trans('common.needsboxes.contact_whatsapp_label')|default('واتساب Needs Boxes') }}</p>
+              <p>{{ trans('common.needsboxes.contact_whatsapp_desc')|default('متاح يوميًا من 10 صباحًا حتى 10 مساءً') }}</p>
+            </div>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[var(--accent-coral)]/15 text-[var(--accent-orange-dark)] flex items-center justify-center">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <div>
+              <p class="font-medium">{{ trans('common.needsboxes.contact_address_label')|default('موقع Needs Boxes') }}</p>
+              <p>{{ store.address ?? trans('common.needsboxes.contact_address_placeholder')|default('المملكة العربية السعودية') }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

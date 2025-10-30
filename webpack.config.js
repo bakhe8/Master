@@ -17,8 +17,8 @@ module.exports = {
         checkout: [asset('js/cart.js'), asset('js/thankyou.js')],
         pages   : [asset('js/loyalty.js'), asset('js/brands.js'),],
         product : [asset('js/product.js'), asset('js/products.js')],
-        order   : asset('js/order.js'),
-        testimonials   : asset('js/testimonials.js')
+        order   : asset('js/order.js')
+        ,testimonials   : asset('js/testimonials.js')
     },
     output : {
         uniqueName: "needsboxes-theme",
@@ -73,6 +73,3 @@ module.exports = {
     },
 }
 ;
-
-
-

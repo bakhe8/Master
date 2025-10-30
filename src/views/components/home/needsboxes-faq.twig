@@ -1,19 +1,41 @@
 ﻿{# NeedsBoxes FAQ #}
-<section id="faq" class="py-12 bg-white/60 dark:bg-black/10">
+<section id="faq" class="py-12 bg-white/60 dark:bg-gray-900/40">
   <div class="container mx-auto px-4">
-    <h2 class="text-2xl font-extrabold mb-6 salla-section-title text-center">الأسئلة الشائعة</h2>
+    <h2 class="text-2xl font-extrabold mb-6 salla-section-title text-center">
+      {{ trans('common.needsboxes.faq_title')|default('الأسئلة الأكثر تداولًا عن صناديق الاحتياجات') }}
+    </h2>
     <div class="max-w-3xl mx-auto space-y-4 mt-8">
-      <details class="bg-white dark:bg-gray-800 rounded-2xl p-4 border dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-md" open>
-        <summary class="font-bold cursor-pointer">هل المنتجات أصلية؟</summary>
-        <p class="mt-2 text-gray-600 dark:text-gray-300">نعم، جميع منتجاتنا أصلية 100% ومشمولة بضمان الوكيل المعتمد.</p>
+      <details class="bg-white dark:bg-gray-900 rounded-3xl p-5 border border-[var(--accent-coral)]/20 dark:border-white/10 shadow-soft transition-all duration-300 hover:-translate-y-0.5" open>
+        <summary class="font-semibold cursor-pointer text-[var(--primary-dark)] dark:text-white text-base">
+          {{ trans('common.needsboxes.faq_custom_title')|default('هل يمكن تخصيص مكونات الصندوق؟') }}
+        </summary>
+        <p class="mt-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.faq_custom_desc')|default('نعم، اختر الصندوق المناسب ثم تواصل معنا لإضافة أو حذف أي ملحق قبل الشحن، وسنجهز لك محتوى يتوافق مع استخدامك اليومي.') }}
+        </p>
       </details>
-      <details class="bg-white dark:bg-gray-800 rounded-2xl p-4 border dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-md">
-        <summary class="font-bold cursor-pointer">كم يستغرق التوصيل؟</summary>
-        <p class="mt-2 text-gray-600 dark:text-gray-300">عادةً يستغرق التوصيل من 48 إلى 72 ساعة داخل المدن الرئيسية.</p>
+      <details class="bg-white dark:bg-gray-900 rounded-3xl p-5 border border-[var(--accent-coral)]/20 dark:border-white/10 shadow-soft transition-all duration-300 hover:-translate-y-0.5">
+        <summary class="font-semibold cursor-pointer text-[var(--primary-dark)] dark:text-white text-base">
+          {{ trans('common.needsboxes.faq_original_title')|default('هل جميع المنتجات أصلية؟') }}
+        </summary>
+        <p class="mt-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.faq_original_desc')|default('نحن شركاء مع موزعين رسميين ومعتمدين، ويتضمن كل صندوق بطاقة ضمان وتعليمات الاستخدام لكل عنصر.') }}
+        </p>
       </details>
-      <details class="bg-white dark:bg-gray-800 rounded-2xl p-4 border dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-md">
-        <summary class="font-bold cursor-pointer">هل يمكن الاستبدال/الاسترجاع؟</summary>
-        <p class="mt-2 text-gray-600 dark:text-gray-300">نعم، نوفر خدمة الاستبدال والاسترجاع خلال 7 أيام.</p>
+      <details class="bg-white dark:bg-gray-900 rounded-3xl p-5 border border-[var(--accent-coral)]/20 dark:border-white/10 shadow-soft transition-all duration-300 hover:-translate-y-0.5">
+        <summary class="font-semibold cursor-pointer text-[var(--primary-dark)] dark:text-white text-base">
+          {{ trans('common.needsboxes.faq_delivery_title')|default('ما هي مدة التوصيل داخل المملكة؟') }}
+        </summary>
+        <p class="mt-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.faq_delivery_desc')|default('التوصيل السريع متوفر بين 24 و72 ساعة حسب المدينة، مع تتبع مباشر لحالة شحنتك من خلال لوحة Needs Boxes.') }}
+        </p>
+      </details>
+      <details class="bg-white dark:bg-gray-900 rounded-3xl p-5 border border-[var(--accent-coral)]/20 dark:border-white/10 shadow-soft transition-all duration-300 hover:-translate-y-0.5">
+        <summary class="font-semibold cursor-pointer text-[var(--primary-dark)] dark:text-white text-base">
+          {{ trans('common.needsboxes.faq_return_title')|default('هل أستطيع الاستبدال أو الاسترجاع؟') }}
+        </summary>
+        <p class="mt-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          {{ trans('common.needsboxes.faq_return_desc')|default('يمكنك الاستبدال أو الاسترجاع خلال 7 أيام طالما بقيت المنتجات بحالتها الأصلية. فريق الدعم يساعدك لإنهاء الطلب بسهولة.') }}
+        </p>
       </details>
     </div>
   </div>

@@ -56,6 +56,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% set metaTitle = theme.settings.get('beto_meta_title', store.name) %}
+    {% set metaDescription = theme.settings.get(
+        'beto_meta_description',
+        store.description is not empty ? store.description : 'Beto Theme — تجربة تسوق عصرية بلمسة احترافية.'
+    ) %}
+    {% set shareImageFallback = 'images/beto-icon-512.png' | asset %}
+    {% set shareImageSetting = theme.settings.get('beto_social_share_image') %}
+    {% set shareImage = shareImageSetting is not empty ? shareImageSetting : (store.logo is not empty ? store.logo : shareImageFallback) %}
+
+    {% set faviconSetting = theme.settings.get('beto_brand_favicon') %}
+    {% set touchIconSetting = theme.settings.get('beto_brand_touch_icon') %}
+    {% set brandColor = theme.settings.get('beto_brand_theme_color', theme.color.primary) %}
+
+    {% set favicon = 'images/beto-favicon.svg' | asset %}
+    {% if store.icon is not empty %}
+        {% set favicon = store.icon %}
+    {% endif %}
+    {% if faviconSetting is not empty %}
+        {% set favicon = faviconSetting %}
+    {% endif %}
+
+    {% set touchIcon = 'images/beto-icon-192.png' | asset %}
+    {% if touchIconSetting is not empty %}
+        {% set touchIcon = touchIconSetting %}
+    {% elseif faviconSetting is not empty %}
+        {% set touchIcon = faviconSetting %}
+    {% elseif store.logo is not empty %}
+        {% set touchIcon = store.logo %}
+    {% endif %}
+
+    {% set maskIcon = 'images/beto-mask-icon.svg' | asset %}
+
+    <title>{% block title %}{{ page.title|default(metaTitle) }}{% endblock %}</title>
+    <meta name="description" content="{{ metaDescription|striptags }}">
+    <meta name="theme-color" content="{{ brandColor }}">
+    <meta name="apple-mobile-web-app-title" content="{{ store.name }}">
+    <meta name="application-name" content="{{ store.name }}">
+    <meta property="og:site_name" content="{{ store.name }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ store.url }}">
+    <meta property="og:title" content="{{ page.title|default(metaTitle) }}">
+    <meta property="og:description" content="{{ metaDescription|striptags }}">
+    <meta property="og:image" content="{{ shareImage }}">
+    <meta name="twitter:card" content="summary_large_image">
+    {% if theme.settings.get('beto_meta_twitter_handle') is not empty %}
+        <meta name="twitter:site" content="{{ theme.settings.get('beto_meta_twitter_handle') }}">
+    {% endif %}
+    <meta name="twitter:title" content="{{ page.title|default(metaTitle) }}">
+    <meta name="twitter:description" content="{{ metaDescription|striptags }}">
+    <meta name="twitter:image" content="{{ shareImage }}">
+
+    <link rel="icon" type="image/svg+xml" href="{{ favicon }}">
+    <link rel="alternate icon" href="{{ touchIcon }}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ touchIcon }}">
+    <link rel="mask-icon" href="{{ maskIcon }}" color="#0D2C6C">
+    <link rel="manifest" href="{{ 'site.webmanifest' | asset }}">
+
     {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
 
     {% include 'pages.partials.loading-screen-assets' %}

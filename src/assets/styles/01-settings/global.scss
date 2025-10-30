@@ -6,23 +6,25 @@ $main-text-color: var(--main-text-color);
 
 :root {
   --infinte-color: #c9c9c9;
-  --main-text-color: #231f1e;
-  --main-text-color-dark: #2b2d34;
+  --main-text-color: #333333;
+  --main-text-color-dark: #111827;
 
-  /* current */
-  --color-primary: #5cd5c4;
-  --color-primary: #414042;
-  --color-primary-d: #272628;
-  --color-primary-l: #676668;
-  --color-primary-reverse: #ff6767;
-  --color-text: #7c8082;
-  --bg-gray: #c6c7ce1a;
-  --color-grey: #f5f7f9;
-  --color-light-grey: #eeeeee;
+  /* NeedsBoxes palette */
+  --color-primary: #0d2c6c;
+  --color-primary-d: #07173f;
+  --color-primary-l: #274082;
+  --color-primary-reverse: #ff9e1b;
+  --color-text: #4b5563;
+  --bg-gray: rgba(238, 240, 245, 0.42);
+  --color-grey: #f8f9fa;
+  --color-light-grey: #e5edf8;
+
   /* font-size */
   --font-sm: 0.8685714286rem;
-  /* font-family: ; */
-  --font-main: "DINNextLTArabic";
+
+  /* typography */
+  --font-main: 'Tajawal', sans-serif;
+  --font-heading: 'Almarai', sans-serif;
 
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
