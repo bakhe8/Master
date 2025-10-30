@@ -33,8 +33,8 @@ class App extends AppHelpers {
     this.log('Theme Loaded 🎉');
   }
 
-  log(message) {
-    salla.log(`ThemeApp(Beto)::${message}`);
+    log(message) {
+    salla.log(`ThemeApp(NeedsBoxes)::${message}`);
     return this;
   }
 

@@ -1,7 +1,4 @@
 class BasePage {
-  constructor() {
-  }
-
   onReady() {
     //
   }
@@ -23,13 +20,13 @@ class BasePage {
     this.onReady();
     this.registerEvents();
     app.log(`The Class For (${allowedPages?.join(',') || '*'}) Loaded🎉`);
-  };
+  }
 }
 
 /**
  * Because we merged multi classes into one file, there is no need to initiate all of them
  */
-BasePage.initiateWhenReady = function (allowedPages = null) {
+BasePage.initiateWhenReady = function (allowedPages) {
   if (window.app?.status === 'ready') {
     (new this).initiate(allowedPages);
   } else {

@@ -1,5 +1,8 @@
 /*
- * Beto Theme - Main Stylesheet
+ * NeedsBoxes Theme - Loader Component
+ * 
+ * Note: This file only imports the loader component CSS.
+ * The main stylesheet is now at src/assets/styles/app.scss
  */
 
 @import "components/loader.css";

@@ -1,0 +1,65 @@
+/**
+ * NeedsBoxes Theme - Main Stylesheet
+ * 
+ * This file serves as the main entry point for all theme styles.
+ * Organized using ITCSS (Inverted Triangle CSS) methodology.
+ */
+
+/* ==========================================================================
+   1. SETTINGS - Variables, config, fonts
+   ========================================================================== */
+@import '01-settings/tailwind';
+@import '01-settings/fonts';
+@import '01-settings/global';
+@import '01-settings/breakpoints';
+
+/* ==========================================================================
+   2. GENERIC - Reset, normalize, box-sizing
+   ========================================================================== */
+@import '02-generic/reset';
+@import '02-generic/common';
+@import '02-generic/animations';
+@import '02-generic/lazyload';
+@import '02-generic/tooltip';
+@import '02-generic/rtl';
+@import '02-generic/ltr';
+
+/* ==========================================================================
+   3. ELEMENTS - Base HTML elements
+   ========================================================================== */
+@import '03-elements/buttons';
+@import '03-elements/form';
+@import '03-elements/radio';
+@import '03-elements/radio-images';
+
+/* ==========================================================================
+   4. COMPONENTS - Specific UI components
+   ========================================================================== */
+@import '04-components/header';
+@import '04-components/footer';
+@import '04-components/menus';
+@import '04-components/slider';
+@import '04-components/product';
+@import '04-components/home-blocks';
+@import '04-components/brands';
+@import '04-components/filters';
+@import '04-components/user-menu';
+@import '04-components/user-pages';
+@import '04-components/loyalty';
+@import '04-components/gifting';
+@import '04-components/landing-page';
+@import '04-components/no-content-placeholder';
+@import '04-components/virtooal';
+
+/* ==========================================================================
+   5. UTILITIES - Helpers, overrides
+   ========================================================================== */
+@import '05-utilities/swal';
+@import '05-utilities/font-customization';
+@import '05-utilities/safari-fixes';
+@import '05-utilities/chat-bots';
+
+/* ==========================================================================
+   6. BRAND - NeedsBoxes specific customizations
+   ========================================================================== */
+@import '06-brand/brand';

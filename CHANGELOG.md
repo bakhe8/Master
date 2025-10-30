@@ -1,14 +1,14 @@
-# Beto Theme Changelog
+# NeedsBoxes Theme Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-02-16
+## [1.0.0] - 2024-05-22
 
 ### Added
-- **Initial Release of Beto Theme.**
+- **Initial Release of NeedsBoxes Theme.**
 - **Core Layouts**: `master.twig`, `checkout.twig`, and `blank.twig`.
 - **Core Pages**: Full e-commerce flow including `index`, `product`, `category`, `cart`, `checkout`, `account`, and `search`.
 - **Blog Functionality**: Added `blog.twig` (index) and `post.twig` (single) pages.
@@ -34,5 +34,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Documentation**: Added `README.md`, `customization.md`, and `changelog.md`.
 
 ### Changed
-- **Rebranding**: Fully updated all styles, colors, fonts, and spacing from the original "Raed" theme to match the "Beto" brand identity.
+- **Rebranding**: Fully updated all styles, colors, fonts, and spacing from the original "Raed" theme to match the "NeedsBoxes" brand identity.
 - **Asset Optimization**: Refactored all CSS and JS into a modular, bundler-ready structure with `theme.css` and `theme.js` as main entry points.

@@ -49,7 +49,7 @@
 
 ## Overview
 This theme is the official storefront for NEEDSBOXES.COM. Built on top of Twilight, the Salla themes engine, it provides a flexible and immersive customer journey on the [Salla Platform](https://salla.sa/site/).
-
+This theme is a customized version of the base [Raed theme](https://github.com/SallaApp/theme-raed), tailored specifically for the unique branding and functional requirements of NEEDSBOXES.COM.
 ## Getting Started
 This theme is built to be developed and customized using the Salla CLI. It includes custom UI components and interactions wired with Twilight events and hooks.
 
@@ -95,7 +95,7 @@ src
 ### Theme Preview
 With [Salla CLI](https://github.com/SallaApp/Salla-CLI) you can preview Beto Theme while developing. Run the following from the theme root:
 
-```shell title="Terminal"
+```bash
 salla theme preview
 
 # Alias command
@@ -107,7 +107,7 @@ You can also trigger previews from the Partners Portal by selecting a demo store
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Main Features
-Beto Theme comes packed with a rich set of features and components, all configurable via the `twilight.json` manifest to provide a highly customizable storefront experience.
+The NeedsBoxes Theme comes packed with a rich set of features and components, all configurable via the `twilight.json` manifest to provide a highly customizable storefront experience.
 
 ### Core Components & Pages
 - **Full E-commerce Flow**: Includes all essential pages: Product, Category, Cart, Checkout, and a full Customer Account dashboard.
@@ -146,7 +146,7 @@ Need help? Open an [issue](https://github.com/bakhe8/Master/issues/new) or join 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Credits
-Beto Theme is maintained by Bakheet A. Al-Zahrani and contributors from the Salla developer ecosystem. Twilight is developed and supported by the Salla team.
+The NeedsBoxes Theme is maintained by Bakheet A. Al-Zahrani and contributors from the Salla developer ecosystem. Twilight is developed and supported by the Salla team.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.

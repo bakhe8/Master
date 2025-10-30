@@ -1,4 +1,4 @@
-﻿{% extends "views/layouts/master.twig" %}
+﻿﻿{% extends "views/layouts/master.twig" %}
 
 {% block content %}
     {#
@@ -8,9 +8,11 @@
         list of active components for the homepage.
     #}
     {% set components = salla.config.get('theme.components') %}
-
-    {% for component in components %}
-        {# The `component.path` (e.g., "home.brands") is converted to a file path. #}
-        {% include "views/components/" ~ component.path|replace({'.': '/'}) ~ ".twig" with { component: component } %}
-    {% endfor %}
+    
+    <div id="home-page">
+        {% for component in components %}
+            {# The `component.path` (e.g., "home.brands") is converted to a file path. #}
+            {% include "views/components/" ~ component.path|replace({'.': '/'}) ~ ".twig" with { component: component } %}
+        {% endfor %}
+    </div>
 {% endblock %}

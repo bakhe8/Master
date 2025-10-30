@@ -36,7 +36,10 @@ class Products extends BasePage {
         if (!filters) {
             return;
         }
-        filters = new MobileMenu(filters, "(max-width: 1024px)", "( slidingSubmenus: false)");
+        filters = new MobileMenu(
+            filters, 
+            "(max-width: 1024px)", 
+            { slidingSubmenus: false });
         const drawer = filters.offcanvas({ position: salla.config.get('theme.is_rtl') ? "right" : 'left' });
         trigger.addEventListener('click', event => {
             document.body.classList.add('filters-opened');

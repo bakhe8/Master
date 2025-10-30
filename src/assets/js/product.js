@@ -14,6 +14,7 @@ class Product extends BasePage {
         });
 
         this.initProductOptionValidations();
+        const imageZoom = !!document.querySelector('salla-slider.details-slider');
 
         if(imageZoom){
             // call the function when the page is ready
@@ -29,30 +30,20 @@ class Product extends BasePage {
       });
     }
 
-    initImagesZooming() {
-      // skip if the screen is not desktop or if glass magnifier
-      // is already crated for the image before
-      const imageZoom = document.querySelector('.image-slider .magnify-wrapper.swiper-slide-active .img-magnifier-glass');
-      if (window.innerWidth  < 1024 || imageZoom) return;
-      setTimeout(() => {
-          // set delay after the resizing is done, start creating the glass
-          // to create the glass in the proper position
-          const image = document.querySelector('.image-slider .swiper-slide-active img');
-          zoom(image?.id, 2);
-      }, 250);
-  
-
-      document.querySelector('salla-slider.details-slider').addEventListener('slideChange', (e) => {
-          // set delay till the active class is ready
-          setTimeout(() => {
-              const imageZoom = document.querySelector('.image-slider .swiper-slide-active .img-magnifier-glass');
-    
-              // if the zoom glass is already created skip
-              if (window.innerWidth  < 1024 || imageZoom) return;
-              const image = document.querySelector('.image-slider .magnify-wrapper.swiper-slide-active img');
-              zoom(image?.id, 2);
-          }, 250)
-      })
+    initImagesZooming() { 
+        const initZoom = () => {
+            // set delay till the active class is ready
+            setTimeout(() => {
+                const imageZoom = document.querySelector('.image-slider .magnify-wrapper.swiper-slide-active .img-magnifier-glass');
+      
+                // if the zoom glass is already created skip
+                if (window.innerWidth  < 1024 || imageZoom) return;
+                const image = document.querySelector('.image-slider .magnify-wrapper.swiper-slide-active img');
+                zoom(image?.id, 2);
+            }, 250)
+        }
+        initZoom();
+        document.querySelector('salla-slider.details-slider').addEventListener('slideChange', initZoom);
     }
 
     registerEvents() {

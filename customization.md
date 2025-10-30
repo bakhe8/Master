@@ -1,10 +1,10 @@
-# Beto Theme Customization Guide
+# NeedsBoxes Theme Customization Guide
 
-This guide provides instructions on how to customize the Beto Theme, from simple configuration changes in the theme editor to advanced code modifications.
+This guide provides instructions on how to customize the NeedsBoxes Theme, from simple configuration changes in the theme editor to advanced code modifications.
 
 ## 1. Theme Editor (No-Code)
 
-The easiest way to customize the Beto Theme is through the Salla Theme Editor. Most of the theme's features and components can be configured directly from this interface. These settings are defined in `twilight.json`.
+The easiest way to customize the NeedsBoxes Theme is through the Salla Theme Editor. Most of the theme's features and components can be configured directly from this interface. These settings are defined in `twilight.json`.
 
 ### Key Configurable Areas:
 - **Homepage Layout**: Add, remove, and reorder homepage components such as the Hero Slider, Testimonials, Featured Products, and Brand Logos.
@@ -14,7 +14,7 @@ The easiest way to customize the Beto Theme is through the Salla Theme Editor. M
 
 ## 2. Basic Code Customization
 
-For developers who need to go beyond the theme editor, Beto is structured for easy extension.
+For developers who need to go beyond the theme editor, NeedsBoxes is structured for easy extension.
 
 ### Colors & Tailwind CSS
 The theme's color palette is defined in `tailwind.config.js`. You can extend or modify this palette to match a specific brand identity.
@@ -23,7 +23,7 @@ The theme's color palette is defined in `tailwind.config.js`. You can extend or 
 // tailwind.config.js
 ...
     colors: {
-        // Beto Palette
+        // NeedsBoxes Palette
         'primary' : '#11224E',
         'secondary': '#0046FF',
         ...

@@ -1,28 +1,29 @@
 name: 🐛 Bug Report
-description: Create a report to help us improve Salla CLI
-title: "bug: "
+description: Create a report to help us improve the NeedsBoxes Theme.
+title: "bug: A brief, descriptive title"
 body:
   - type: checkboxes
     attributes:
       label: Prerequisites
       description: Please ensure you have completed the following.
       options:
-        - label: I have searched for [existing issues](https://github.com/SallaApp/Salla-CLI/issues) that already report this problem, without success.
+        - label: I have searched for [existing issues](https://github.com/bakhe8/Master/issues) that already report this problem, without success.
           required: true
   - type: checkboxes
     attributes:
-      label: SallaCLI Version
-      description: Please select which versions of Salla CLI this issue impacts. For Salla CLI 1.x issues, please use https://github.com/SallaApp/Salla-CLI.
+      label: Theme Version
+      description: Please select which version of the theme this issue impacts.
       options:
         - label: v1.x
   - type: dropdown
     id: issue_type
     attributes:
-      label: Salla CLI issue Type
-      description: Please select the project type.
+      label: Issue Context
+      description: Where in the theme does this bug occur?
       options:
-        - App
-        - Theme
+        - Homepage
+        - Product Page
+        - Other
     validations:
       required: true
   - type: textarea
@@ -43,15 +44,10 @@ body:
       description: Please explain the steps required to duplicate this issue.
     validations:
       required: true
-  - type: input
-    attributes:
-      label: Code Reproduction URL
-      description: Please reproduce this issue in a blank Salla CLI starter application and provide a link to the repo. Try out our [Getting Started Wizard](https://salla-dev.webpkgcache.com/doc/-/s/salla.dev/blog/meet-salla-cli/) to quickly spin up an Salla CLI starter app. This is the best way to ensure this issue is triaged quickly. Issues without a code reproduction may be closed if the Ionic Team cannot reproduce the issue you are reporting.
-      placeholder: https://github.com/...
   - type: textarea
     attributes:
-      label: Salla Info
-      description: Please run `salla info` from within your Salla CLI project directory and paste the output below.
+      label: Environment Info
+      description: Please provide your browser and operating system.
     validations:
       required: true
   - type: textarea

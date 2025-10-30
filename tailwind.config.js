@@ -1,10 +1,7 @@
 module.exports = {
-    important: false,
     content: [
         "src/views/**/*.twig",
         "src/assets/js/**/*.js",
-        //todo:: inject it via the plugin or easier way
-        'node_modules/@salla.sa/twilight-tailwind-theme/safe-list-css.txt',
     ],
     darkMode: 'class', // or 'media' or 'class'
     theme   : {
@@ -16,12 +13,7 @@ module.exports = {
             }
         },
         fontFamily: {
-            sans: [
-                'var(--font-main)',
-                '-apple-system',
-                'BlinkMacSystemFont',
-            ],
-            primary: "var(--font-main)"
+            sans: ['var(--font-main)', '-apple-system', 'BlinkMacSystemFont'],
         },
         extend    : {
             transitionTimingFunction: {
@@ -34,7 +26,7 @@ module.exports = {
                 'dark'    : '#1D1F1F',
                 'darker'  : '#0E0F0F',
                 'danger'  : '#AE0A0A',
-                // Beto Palette
+                // NeedsBoxes Palette
                 'primary' : '#11224E',
                 'secondary': '#0046FF',
                 'accent'  : '#73C8D2',
@@ -111,10 +103,6 @@ module.exports = {
                 '1': '1',
                 '2': '2',
                 '-1': '-1',
-            },
-            screens            : {
-                'xxs': {'min': '380px', 'max': '479px'},
-                'xs': '480px',
             },
             backgroundOpacity  : {
                 '05': '0.05',

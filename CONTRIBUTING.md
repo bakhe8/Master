@@ -1,6 +1,6 @@
-# Contributing to Beto Theme
+# Contributing to NeedsBoxes Theme
 
-First off, thank you for considering contributing to the Beto Theme! It's people like you that make the open-source community such an amazing place.
+First off, thank you for considering contributing to the NeedsBoxes Theme! It's people like you that make the open-source community such an amazing place.
 
 This document provides a set of guidelines for contributing to the theme. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
@@ -60,5 +60,5 @@ Unsure where to begin contributing? You can start by looking through `good-first
 ## Pull Request Process
 1.  Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 2.  Update the `README.md` and other relevant documentation with details of changes to the interface.
-3.  Increase the version numbers in any examples and the `changelog.md` to the new version that this Pull Request would represent.
+3.  Update the version number in `changelog.md` according to the Semantic Versioning guidelines.
 4.  Your PR will be reviewed, and you may be asked to make changes before it can be merged.

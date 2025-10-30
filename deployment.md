@@ -1,6 +1,6 @@
-# Beto Theme Deployment Guide
+# NeedsBoxes Theme Deployment Guide
 
-This document provides a step-by-step guide for deploying the Beto Theme to the Salla Marketplace. Following these steps ensures that the theme is production-ready and meets Salla's quality standards.
+This document provides a step-by-step guide for deploying the NeedsBoxes Theme to the Salla Marketplace. Following these steps ensures that the theme is production-ready and meets Salla's quality standards.
 
 ## Step 1: Pre-Deployment Checklist
 
@@ -13,9 +13,9 @@ Before submitting the theme, perform a final audit to ensure everything is in or
 - **Cross-Browser Compatibility**: Test the theme on major browsers (Chrome, Firefox, Safari).
 
 ### ✅ Branding & Assets
-- **Branding**: Double-check that all references to the old "Raed" theme have been replaced with "Beto".
-- **Asset Optimization**: Ensure that all CSS and JavaScript files are optimized and bundled into `theme.css` and `theme.js`. Unused assets should be removed.
-- **Images**: All placeholder images have been replaced with Beto's official assets.
+- **Branding**: Double-check that all references to the old "Raed" theme have been replaced with "NeedsBoxes".
+- **Asset Optimization**: Ensure that all CSS and JavaScript files are optimized and bundled into `theme.css` and `theme.js`. Unused assets from the original "Raed" theme should be removed.
+- **Images**: All placeholder images have been replaced with NeedsBoxes' official assets.
 
 ### ✅ Configuration & Content
 - **`twilight.json`**: Validate that the `twilight.json` file is well-formed and all theme settings, options, and homepage components are correctly defined.
@@ -25,7 +25,7 @@ Before submitting the theme, perform a final audit to ensure everything is in or
 ### ✅ Documentation & Meta
 - **`README.md`**: The README is up-to-date with the latest features and instructions.
 - **`changelog.md`**: The changelog is updated with the correct version number and release date.
-- **`preview.png`**: A high-quality preview image (1280x960px) exists in the root directory and accurately represents the theme's homepage.
+- **`preview.png`**: A high-quality preview image (1280x960px) exists in the root directory and accurately represents the theme's homepage. This is a crucial file for the Salla marketplace.
 
 ## Step 2: Versioning with Git
 
@@ -55,10 +55,10 @@ With your code pushed and tagged on GitHub, you are ready to submit the theme.
 
 1.  Log in to the Salla Partners Portal.
 2.  Navigate to the **Themes** section from the sidebar.
-3.  Either create a new theme or select the existing Beto Theme to update it.
+3.  Either create a new theme or select the existing NeedsBoxes Theme to update it.
 4.  Ensure the theme is connected to the correct GitHub repository (`bakhe8/Master`).
 5.  From the "Versions" or "Releases" tab, create a new version and select the tag you just pushed (e.g., `v1.0.0`).
 6.  Fill in all required information, such as the theme's price, description, and support URL.
 7.  Submit the theme for review.
 
-The Salla team will then review your theme. If any issues are found, they will provide feedback for you to address. Once approved, the Beto Theme will be published on the Salla Theme Marketplace.
+The Salla team will then review your theme. If any issues are found, they will provide feedback for you to address. Once approved, the NeedsBoxes Theme will be published on the Salla Theme Marketplace.

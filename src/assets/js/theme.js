@@ -1,5 +1,5 @@
 // ==========================================================================
-// Beto Theme
+// NeedsBoxes Theme
 //
 // Note: This file is the main entry point for all theme-specific JavaScript.
 // It's assumed that this script is loaded with `defer` in the master layout.
@@ -10,7 +10,12 @@ import './dark-mode.js';
 import './loader.js';
 import './promo-bar.js';
 import './scroll-to-top.js';
-import './home.js';
-import './testimonials.js';
-import './brands.js';
 import './newsletter-modal.js';
+
+// Dynamically import components that are not on every page.
+// We check for the existence of a specific element before loading the script.
+if (document.getElementById('home-page')) {
+    import('./home.js');
+    import('./testimonials.js');
+    import('./brands.js');
+}
