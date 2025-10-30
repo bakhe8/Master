@@ -1,12 +1,12 @@
 <div id="top"></div>
 <br />
 <div align="center">
-  <a href="https://salla.dev">
+  <a href="https://needsboxes.com">
     <img src="https://salla.dev/wp-content/uploads/2023/03/1-Light.png" alt="Logo">
   </a>
-  <h1 align="center">Beto Theme</h1>
+  <h1 align="center">NeedsBoxes Theme</h1>
   <p align="center">
-    Beto Theme is a tailored storefront experience for Salla merchants who want a polished, customizable presentation layer.
+    A tailored storefront experience for NEEDSBOXES.COM, built on the Salla platform.
     <br />
     <a href="https://salla.dev/"><strong>Explore our blogs »</strong></a>
     <br />
@@ -48,10 +48,10 @@
 <br>
 
 ## Overview
-Beto Theme is the starting point for developers to design Salla storefronts that reflect the uniqueness of each brand. Built on top of Twilight, the Salla themes engine, it provides a flexible foundation for crafting immersive customer journeys on the [Salla Platform](https://salla.sa/site/).
+This theme is the official storefront for NEEDSBOXES.COM. Built on top of Twilight, the Salla themes engine, it provides a flexible and immersive customer journey on the [Salla Platform](https://salla.sa/site/).
 
 ## Getting Started
-Use Beto Theme to launch fully customized themes, extend UI components, and wire bespoke interactions with Twilight events and hooks.
+This theme is built to be developed and customized using the Salla CLI. It includes custom UI components and interactions wired with Twilight events and hooks.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -62,17 +62,17 @@ Use Beto Theme to launch fully customized themes, extend UI components, and wire
 - [Salla CLI](https://www.npmjs.com/package/@salla.sa/cli) installed locally.
 
 ### Install
-Beto Theme ships by default with the Twilight engine. Twilight can be installed in two ways:
+The theme is built upon the Twilight engine. Twilight can be installed in two ways:
 
 - Through the [Salla Partners Portal](https://docs.salla.dev/doc-421877/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM#creating-theme-via-salla-partners-portal)
 - Through the [Salla CLI](https://docs.salla.dev/doc-422775/?nav=01HNA8QHCPJTCY5VSEZ616JCAK)
 
-Either approach installs the Twilight engine together with Beto Theme. Refer to the full [installation guide](https://docs.salla.dev/doc-421877/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) for more detail.
+Refer to the full [installation guide](https://docs.salla.dev/doc-421877/?nav=01HNFTD5Y5ESFQS3P9MJ0721VM) for more detail on creating and installing themes.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
-Beto Theme is installed as the default Twilight theme. The sections below outline the directory structure and how to preview the theme while you iterate.
+The sections below outline the directory structure and how to preview the theme while you iterate.
 
 ### Directory Structure
 The theme files live under the `src/` directory:

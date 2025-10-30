@@ -1,6 +1,7 @@
 import "lite-youtube-embed";
 import Lightbox from "fslightbox";
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 window.fslightbox = Lightbox;
 

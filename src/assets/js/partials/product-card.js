@@ -244,10 +244,7 @@ class ProductCard extends HTMLElement {
               `<label for="donation-amount-${this.product.id}">${this.donationAmount} <span>*</span></label>
               <input
                 type="text"
-                onInput="${e => {
-                  salla.helpers.inputDigitsOnly(e.target);
-                  this.addBtn.donatingAmount = (e.target).value;
-                }}"
+                oninput="salla.helpers.inputDigitsOnly(this)"
                 id="donation-amount-${this.product.id}"
                 name="donating_amount"
                 class="s-form-control"

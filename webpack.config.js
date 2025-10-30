@@ -26,6 +26,9 @@ module.exports = {
         clean: true,
         chunkFilename: "[name].[contenthash].js"
     },
+    resolve: {
+        modules: [path.resolve(__dirname, 'node_modules'), 'node_modules']
+    },
     stats  : {modules: false, assetsSort: "size", assetsSpace: 50},
     module : {
         rules: [
@@ -55,7 +58,12 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     {loader: "css-loader", options: {url: false}},
                     "postcss-loader",
-                    "sass-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require("sass"),
+                        },
+                    },
                 ]
             },
         ],
