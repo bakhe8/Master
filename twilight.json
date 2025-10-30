@@ -7,7 +7,7 @@
     "author_email": "support@salla.sa",
     "features": [
         "mega-menu",
-        "fonts", 
+        "fonts",
         "color",
         "breadcrumb",
         "unite-cards-height",
@@ -22,7 +22,7 @@
         "component-store-features",
         "component-youtube",
         "menu-images",
-        "filters" 
+        "filters"
     ],
     "components": [
         {
@@ -772,8 +772,7 @@
                     "maxLength": 30
                 }
             ]
-        }
-        ,
+        },
         {
             "key": "c8a9f0b1-e2d3-4c5b-6a7d-8e9f0a1b2c3d",
             "title": "مقالات مميزة",
@@ -821,5 +820,19 @@
     "description": {
         "ar": "مجموعة كبيرة من المزايا لدعم تجارتك وتقديم تجربة تسوق مثيرة لعملائك",
         "en": "A wide range of features to support your business and provide an exciting shopping experience for your customers."
-    }
+    },
+    "settings": [
+        {
+            "id": "date_time",
+            "type": "string",
+            "format": "datetime",
+            "inputType": "datetime-local",
+            "label": "Date Time",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-calendar-time",
+            "value": "2021-10-01T15:23",
+            "required": false
+        }
+    ]
 }
